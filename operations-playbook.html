@@ -1,0 +1,371 @@
+<title>Cookie Shop Operations Playbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: single reading column with a sticky section index on wide screens; tables scroll inside their own boxes. */
+:root {
+  --bg: #fbf8f6;
+  --panel: #ffffff;
+  --fg: #2a1d17;
+  --muted: #7a6a62;
+  --line: #eadfd8;
+  --accent: #6b3a1f;
+  --accent-soft: #f3e6dc;
+  --butter: #e9b949;
+  --good: #2f7d4f;
+  --warn: #a86a00;
+  --bad: #b3372a;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1a1411; --panel: #241c18; --fg: #f3e9e3; --muted: #b3a197; --line: #3a2e28;
+    --accent: #e0a47a; --accent-soft: #3a2a20; --butter: #e9c060; --good: #6cc48f; --warn: #e6b04f; --bad: #f08576;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1a1411; --panel: #241c18; --fg: #f3e9e3; --muted: #b3a197; --line: #3a2e28;
+  --accent: #e0a47a; --accent-soft: #3a2a20; --butter: #e9c060; --good: #6cc48f; --warn: #e6b04f; --bad: #f08576;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 40px 16px 80px; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 48px; }
+@media (max-width: 860px) { .wrap { grid-template-columns: 1fr; gap: 24px; } nav.toc { position: static; } }
+nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; font-size: 14px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; counter-reset: s; }
+nav.toc li { counter-increment: s; }
+nav.toc a { color: var(--muted); text-decoration: none; display: flex; gap: 8px; padding: 2px 0; }
+nav.toc a::before { content: counter(s); font-family: var(--mono); font-size: 12px; color: var(--accent); width: 16px; }
+nav.toc a:hover, nav.toc a:focus-visible { color: var(--fg); }
+@media (max-width: 860px) { nav.toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+main { min-width: 0; }
+header { margin-bottom: 40px; }
+.eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); font-weight: 600; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(32px, 6vw, 48px); line-height: 1.05; margin: 6px 0 12px; text-wrap: balance; }
+.lede { font-size: 18px; max-width: 62ch; color: var(--fg); margin: 0; }
+section { padding-block: 32px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+h2 { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1.2; margin: 0 0 8px; text-wrap: balance; }
+h3 { font-family: var(--display); font-weight: 600; font-size: 18px; margin: 24px 0 8px; }
+p { max-width: 68ch; margin: 0 0 12px; }
+.muted { color: var(--muted); }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tablebox { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); margin: 12px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; background: var(--accent-soft); }
+td.t { font-family: var(--mono); font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.tag.auto { border-color: var(--good); color: var(--good); }
+.tag.people { border-color: var(--accent); color: var(--accent); }
+.roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+@media (max-width: 720px) { .roles { grid-template-columns: 1fr; } }
+.role { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+.role h3 { margin: 0 0 2px; }
+.role .hrs { font-family: var(--mono); font-size: 13px; color: var(--accent); margin-bottom: 8px; }
+.role ul { margin: 0; padding-left: 18px; font-size: 14px; display: grid; gap: 4px; }
+.stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+@media (max-width: 640px) { .stack { grid-template-columns: 1fr; } }
+.tool { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; background: var(--panel); }
+.tool b { display: block; font-weight: 600; }
+.tool .does { font-size: 14px; margin: 4px 0 6px; }
+.tool .ex { font-size: 13px; color: var(--muted); }
+.flow { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; overflow-x: auto; margin: 16px 0; }
+.rule { font-family: var(--mono); font-size: 13px; }
+.rule .if { color: var(--muted); }
+.kpi-state { font-weight: 600; font-size: 12px; }
+.g { color: var(--good); } .w { color: var(--warn); } .r { color: var(--bad); }
+ol.steps { padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
+.callout { background: var(--accent-soft); border-radius: 8px; padding: 16px; margin: 16px 0; max-width: 68ch; }
+.callout p:last-child { margin: 0; }
+.recipe { font-family: var(--mono); font-size: 13px; background: var(--panel); border: 1px dashed var(--line); border-radius: 8px; padding: 16px; overflow-x: auto; white-space: pre; line-height: 1.7; }
+.phases { display: grid; gap: 12px; margin-top: 12px; }
+.phase { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+@media (max-width: 560px) { .phase { grid-template-columns: 1fr; gap: 4px; } }
+.phase .when { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+.phase ul { margin: 4px 0 0; padding-left: 18px; font-size: 14px; }
+</style>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Sections">
+    <ol>
+      <li><a href="#roles">Who does what</a></li>
+      <li><a href="#stack">The tool stack</a></li>
+      <li><a href="#flow">How data flows</a></li>
+      <li><a href="#day">A day in the shop</a></li>
+      <li><a href="#automations">Automations</a></li>
+      <li><a href="#kpis">Numbers to watch</a></li>
+      <li><a href="#sops">Recipes and baking plan</a></li>
+      <li><a href="#controls">Stopping leaks</a></li>
+      <li><a href="#people">Hiring and training</a></li>
+      <li><a href="#rhythm">Weekly and monthly</a></li>
+      <li><a href="#launch">90 days to step back</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header>
+      <div class="eyebrow">Operations playbook</div>
+      <h1>Cookie Shop Operations Playbook</h1>
+      <p class="lede">How a walk-in cookie store runs every day without the owner in it. Software records every sale, every stock movement and every checklist. Staff follow written steps. You read one report a night and spend about two hours a week on the business.</p>
+      <p class="muted" style="margin-top:12px">Targets match the example figures in the <a href="https://claude.ai/artifact/UzKFWwoXXGEkMxX7dPm94Z">Cookie Shop Profit Planner</a>: 400 cookies a day, break-even near 230. Change them once you have your own numbers.</p>
+    </header>
+
+    <section id="roles">
+      <h2>Who does what</h2>
+      <p>The shop has three layers. Each one only makes the decisions that belong to it.</p>
+      <div class="roles">
+        <div class="role">
+          <h3>Owner (you)</h3>
+          <div class="hrs">about 2 hrs / week</div>
+          <ul>
+            <li>Read the nightly report (5 minutes)</li>
+            <li>Weekly review call with the manager</li>
+            <li>Approve spending above a set limit</li>
+            <li>Set prices, the menu and targets</li>
+            <li>Hire or fire the manager</li>
+          </ul>
+        </div>
+        <div class="role">
+          <h3>Store manager</h3>
+          <div class="hrs">full time, salaried</div>
+          <ul>
+            <li>Writes the staff rota</li>
+            <li>Approves supplier orders</li>
+            <li>Trains staff and checks their work</li>
+            <li>Handles complaints and refunds</li>
+            <li>Owns the numbers in section 6</li>
+          </ul>
+        </div>
+        <div class="role">
+          <h3>Shift staff</h3>
+          <div class="hrs">2 per shift, hourly</div>
+          <ul>
+            <li>Bake to the hourly plan</li>
+            <li>Serve customers and use the till</li>
+            <li>Complete opening and closing checklists</li>
+            <li>Log waste at the end of each day</li>
+            <li>One senior staff member acts as shift lead</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout">
+        <p><b>Spending limit.</b> The manager can spend up to a fixed amount per order without asking, for example 300 in your currency. Anything larger goes to you for approval in the purchasing app. This one rule removes most of the day-to-day calls to the owner.</p>
+      </div>
+    </section>
+
+    <section id="stack">
+      <h2>The tool stack</h2>
+      <p>Pick one tool for each job below. The examples are common choices; which ones you can use depends on your country. Choose a till system first, because most of the automation runs through it.</p>
+      <div class="stack">
+        <div class="tool"><b>Till system with inventory</b><div class="does">Takes payments, removes ingredients from stock with each sale, sends daily reports.</div><div class="ex">Square, Toast, Lightspeed, Loyverse; Petpooja in India</div></div>
+        <div class="tool"><b>Staff scheduling and clock-in</b><div class="does">Rota, shift swaps, clock-in by phone or tablet at the shop only, timesheets for payroll.</div><div class="ex">Homebase, 7shifts, Deputy, When I Work</div></div>
+        <div class="tool"><b>Digital checklists</b><div class="does">Opening, closing, cleaning and temperature logs with photos and time stamps.</div><div class="ex">Jolt, Trail, Lumiform, or a free Google Form</div></div>
+        <div class="tool"><b>Accounting</b><div class="does">Pulls sales from the till and payments from the bank; monthly profit and loss.</div><div class="ex">QuickBooks, Xero, Zoho Books</div></div>
+        <div class="tool"><b>Cloud security cameras</b><div class="does">View the till, oven and door from your phone. Motion alerts after closing time.</div><div class="ex">Verkada, Wyze, Hikvision with cloud recording</div></div>
+        <div class="tool"><b>Fridge and freezer sensors</b><div class="does">Sends a text if the dough fridge warms above 5 °C.</div><div class="ex">SensorPush, Govee, or a sensor bundled with your checklist app</div></div>
+        <div class="tool"><b>Online ordering and delivery</b><div class="does">Orders go straight into the till system, not a separate tablet.</div><div class="ex">Built-in ordering from your till, plus delivery apps</div></div>
+        <div class="tool"><b>Loyalty and reviews</b><div class="does">Automatic points with each sale; asks happy customers for a Google review.</div><div class="ex">Usually built into the till system</div></div>
+      </div>
+    </section>
+
+    <section id="flow">
+      <h2>How data flows</h2>
+      <p>Each sale updates stock, reports and accounts with no one typing it twice. People only step in where something needs judgement.</p>
+      <div class="flow">
+<pre class="mermaid">
+flowchart LR
+  A[Customer buys cookies] --> B[Till system]
+  B --> C[Stock goes down by recipe]
+  C -->|below reorder level| D[Draft supplier order]
+  D --> E{Manager approves}
+  E --> F[Supplier delivers]
+  F --> C
+  B --> G[Nightly report to owner]
+  B --> H[Accounting software]
+  I[Staff clock in] --> J[Timesheets]
+  J --> H
+  K[Checklists and sensors] -->|missed or out of range| L[Alert to manager]
+</pre>
+      </div>
+    </section>
+
+    <section id="day">
+      <h2>A day in the shop</h2>
+      <p>Example times for a shop open 9:00 to 19:00. Each step says who does it and where the proof is recorded.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Time</th><th>What happens</th><th>Who</th><th>Recorded in</th></tr></thead>
+          <tbody>
+            <tr><td class="t">7:30</td><td>Opener clocks in. Photo of the fridge thermometer. Ovens on.</td><td><span class="tag people">Staff</span></td><td>Clock-in app, checklist</td></tr>
+            <tr><td class="t">7:40</td><td>Bake the opening batch from the hourly plan. Set up the display.</td><td><span class="tag people">Staff</span></td><td>Opening checklist</td></tr>
+            <tr><td class="t">8:50</td><td>Count the cash float. Checklist must be finished before the till opens.</td><td><span class="tag people">Shift lead</span></td><td>Till system</td></tr>
+            <tr><td class="t">9:00</td><td>If the opening checklist is not complete, the manager gets a text.</td><td><span class="tag auto">Automatic</span></td><td>Checklist app</td></tr>
+            <tr><td class="t">Every hour</td><td>Bake to the plan. Top up the display so it never looks empty.</td><td><span class="tag people">Staff</span></td><td>Baking plan sheet</td></tr>
+            <tr><td class="t">13:00</td><td>Midday check: if sales are 25% below the same weekday last month, the manager is told to post a promotion.</td><td><span class="tag auto">Automatic</span></td><td>Till report</td></tr>
+            <tr><td class="t">16:00</td><td>Last full bake. After this, bake small batches only when stock runs low.</td><td><span class="tag people">Shift lead</span></td><td>Baking plan sheet</td></tr>
+            <tr><td class="t">19:00</td><td>Close the till. Count cash; the till shows any difference.</td><td><span class="tag people">Shift lead</span></td><td>Till system</td></tr>
+            <tr><td class="t">19:10</td><td>Log unsold and burnt cookies as waste. Day-old cookies go to a discount box or donation.</td><td><span class="tag people">Staff</span></td><td>Till system (waste)</td></tr>
+            <tr><td class="t">19:30</td><td>Cleaning and closing checklist with photos. Clock out.</td><td><span class="tag people">Staff</span></td><td>Checklist, clock-in app</td></tr>
+            <tr><td class="t">21:00</td><td>Nightly report sent to owner and manager. Low stock turned into draft orders.</td><td><span class="tag auto">Automatic</span></td><td>Till system</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="automations">
+      <h2>Automations</h2>
+      <p>Set these up once. Each is a simple rule: when something happens, the system does something. Most till and checklist apps have these as built-in settings; others can be joined up with Zapier or Make.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>When</th><th>Then</th><th>Goes to</th></tr></thead>
+          <tbody>
+            <tr><td class="rule"><span class="if">Daily 21:00</span></td><td>Send sales, cookie count, average order, waste, labour cost and cash difference</td><td>Owner, manager</td></tr>
+            <tr><td class="rule"><span class="if">Stock below reorder level</span></td><td>Create a draft order to the usual supplier</td><td>Manager approves</td></tr>
+            <tr><td class="rule"><span class="if">Order above spending limit</span></td><td>Ask for approval before sending</td><td>Owner</td></tr>
+            <tr><td class="rule"><span class="if">Checklist not done by deadline</span></td><td>Text reminder, then escalate after 30 minutes</td><td>Shift lead, then manager</td></tr>
+            <tr><td class="rule"><span class="if">Fridge above 5 °C for 20 min</span></td><td>Text and phone call</td><td>Manager</td></tr>
+            <tr><td class="rule"><span class="if">Staff not clocked in 10 min after shift start</span></td><td>Alert and offer the shift to other staff</td><td>Manager, staff group</td></tr>
+            <tr><td class="rule"><span class="if">Labour cost above 40% of sales this week</span></td><td>Warn before next week's rota is published</td><td>Manager</td></tr>
+            <tr><td class="rule"><span class="if">Cash difference above a small set amount</span></td><td>Flag the shift and the person who closed</td><td>Manager, owner</td></tr>
+            <tr><td class="rule"><span class="if">Refund or void recorded</span></td><td>Log with the staff name; weekly summary</td><td>Manager, owner</td></tr>
+            <tr><td class="rule"><span class="if">Door opens after closing</span></td><td>Camera clip to phone</td><td>Owner, manager</td></tr>
+            <tr><td class="rule"><span class="if">Customer rates 4 or 5 stars</span></td><td>Ask for a Google review</td><td>Customer</td></tr>
+            <tr><td class="rule"><span class="if">Customer rates 1 to 3 stars</span></td><td>Send privately to the manager to call back within 24 hours</td><td>Manager</td></tr>
+            <tr><td class="rule"><span class="if">Loyalty customer away 30 days</span></td><td>Send a free-cookie offer</td><td>Customer</td></tr>
+            <tr><td class="rule"><span class="if">1st of each month</span></td><td>Profit and loss from accounting software</td><td>Owner</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="kpis">
+      <h2>Numbers to watch</h2>
+      <p>The nightly report and the weekly review use these. Green means leave it alone. Amber means the manager explains it at the weekly review. Red means the manager acts that day.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Measure</th><th>Target</th><th>Amber</th><th>Red</th></tr></thead>
+          <tbody>
+            <tr><td>Cookies sold per day</td><td class="t g">400+</td><td class="t w">250–399</td><td class="t r">under 230 (break-even)</td></tr>
+            <tr><td>Ingredients and packaging, % of sales</td><td class="t g">under 20%</td><td class="t w">20–25%</td><td class="t r">over 25%</td></tr>
+            <tr><td>Staff cost, % of sales</td><td class="t g">under 40%</td><td class="t w">40–50%</td><td class="t r">over 50%</td></tr>
+            <tr><td>Waste, % of cookies baked</td><td class="t g">under 8%</td><td class="t w">8–12%</td><td class="t r">over 12%</td></tr>
+            <tr><td>Cash difference per day</td><td class="t g">0</td><td class="t w">small</td><td class="t r">any repeat</td></tr>
+            <tr><td>Checklists done on time</td><td class="t g">100%</td><td class="t w">90–99%</td><td class="t r">under 90%</td></tr>
+            <tr><td>Google rating</td><td class="t g">4.6+</td><td class="t w">4.3–4.5</td><td class="t r">under 4.3</td></tr>
+            <tr><td>Returning customers (loyalty)</td><td class="t g">35%+</td><td class="t w">20–34%</td><td class="t r">under 20%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sops">
+      <h2>Recipes and baking plan</h2>
+      <p>Anyone trained for five days should bake a cookie you cannot tell apart from yours. That needs recipes by weight, not by cups, and a fixed plan for how much to bake each hour.</p>
+      <h3>Recipe card format</h3>
+      <div class="recipe">CLASSIC CHOC CHIP             Batch: 48 cookies at 60 g dough each
+─────────────────────────────────────────────────────────────
+Butter, unsalted, soft      680 g     Mix 3 min with sugars
+Brown sugar                 540 g
+White sugar                 270 g
+Eggs                        4 (200 g) Add one at a time
+Vanilla                     15 g
+Flour                       900 g     Mix on low until just combined
+Baking soda                 10 g
+Salt                        12 g
+Chocolate chunks            720 g     Fold in by hand
+─────────────────────────────────────────────────────────────
+Scoop 60 g · Chill 24 h minimum · Bake 180 °C, 11 min
+Done when: edges golden, centre still soft
+Photo of correct cookie: pinned above the oven</div>
+      <p class="muted" style="margin-top:8px">Make dough the day before and freeze scooped balls. Staff then only bake, which is faster and more consistent.</p>
+
+      <h3>Hourly baking plan</h3>
+      <p>Start with these numbers. Each week the manager adjusts them using the till's sales-by-hour report, aiming for waste under 8%.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Bake at</th><th>Cookies</th><th>Reason</th></tr></thead>
+          <tbody>
+            <tr><td class="t">7:40</td><td class="t">60</td><td>Full display for opening</td></tr>
+            <tr><td class="t">10:30</td><td class="t">60</td><td>Late morning</td></tr>
+            <tr><td class="t">12:00</td><td class="t">80</td><td>Lunch rush</td></tr>
+            <tr><td class="t">14:00</td><td class="t">60</td><td>Afternoon</td></tr>
+            <tr><td class="t">15:30</td><td class="t">80</td><td>School and office pick-up</td></tr>
+            <tr><td class="t">16:30</td><td class="t">60</td><td>Early evening, last full bake</td></tr>
+            <tr><td class="t">After 17:00</td><td class="t">12 at a time</td><td>Only when the display runs low</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="controls">
+      <h2>Stopping leaks</h2>
+      <p>When the owner is away, money leaks through cash, free cookies, missing stock and extra hours. Each of these checks takes no one's time day to day.</p>
+      <ol class="steps">
+        <li><b>Every sale goes through the till.</b> The display shows prices; the customer screen shows the total. A sign at the counter says customers get a free cookie if they are not offered a receipt, so customers check for you.</li>
+        <li><b>Each staff member has their own till login.</b> Refunds, voids and discounts carry a name.</li>
+        <li><b>Blind cash count.</b> Staff count the cash before the till tells them what it should be.</li>
+        <li><b>Weekly stock count of the five costliest items</b> (butter, chocolate, nuts, boxes, eggs). The till compares actual stock with what sales say should be left.</li>
+        <li><b>Clock-in only at the shop,</b> by location or a tablet at the counter, so hours can't be padded.</li>
+        <li><b>Staff treats are logged</b> as waste with a reason. Allow a fixed amount per shift, so no one needs to hide it.</li>
+        <li><b>Camera on the till and the back door,</b> reviewed only when a number looks wrong.</li>
+      </ol>
+    </section>
+
+    <section id="people">
+      <h2>Hiring and training</h2>
+      <h3>Hiring</h3>
+      <p>Hire for reliability and friendliness; baking can be taught. Keep the job post, interview questions and a paid two-hour trial shift the same every time, so the manager can run hiring without you.</p>
+      <h3>Five-day training plan</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Day</th><th>Learn</th><th>Signed off when</th></tr></thead>
+          <tbody>
+            <tr><td class="t">1</td><td>Food safety, hand washing, allergens, cleaning checklist</td><td>Passes a short quiz</td></tr>
+            <tr><td class="t">2</td><td>Till: sales, boxes, loyalty, cash count</td><td>Runs the till for 2 hours with no errors</td></tr>
+            <tr><td class="t">3</td><td>Baking from frozen dough, oven timing, display</td><td>Two batches match the photo</td></tr>
+            <tr><td class="t">4</td><td>Opening checklist and baking plan</td><td>Opens the shop with the manager watching</td></tr>
+            <tr><td class="t">5</td><td>Closing, waste logging, handling complaints</td><td>Closes alone; cash difference is zero</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Manager pay</h3>
+      <p>Pay a base salary plus a monthly bonus of 10% of profit above break-even. This rewards selling more and wasting less. Paying on sales alone would reward overstaffing and discounting.</p>
+    </section>
+
+    <section id="rhythm">
+      <h2>Weekly and monthly</h2>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>When</th><th>Task</th><th>Who</th><th>Time</th></tr></thead>
+          <tbody>
+            <tr><td class="t">Daily</td><td>Read the nightly report. Reply only if something is red.</td><td>Owner</td><td class="t">5 min</td></tr>
+            <tr><td class="t">Monday</td><td>Weekly review call: numbers from section 6, one problem, one fix</td><td>Owner, manager</td><td class="t">45 min</td></tr>
+            <tr><td class="t">Tuesday</td><td>Stock count of top five items; adjust reorder levels</td><td>Manager</td><td class="t">30 min</td></tr>
+            <tr><td class="t">Wednesday</td><td>Publish next week's rota, checked against sales forecast</td><td>Manager</td><td class="t">30 min</td></tr>
+            <tr><td class="t">Thursday</td><td>Adjust baking plan from sales-by-hour and waste</td><td>Manager</td><td class="t">20 min</td></tr>
+            <tr><td class="t">Monthly</td><td>Profit and loss review; compare with the Profit Planner; check prices against ingredient costs</td><td>Owner</td><td class="t">1 hr</td></tr>
+            <tr><td class="t">Monthly</td><td>Surprise visit or a friend making a "mystery shopper" visit</td><td>Owner</td><td class="t">30 min</td></tr>
+            <tr><td class="t">Quarterly</td><td>New seasonal cookie; deep clean; oven service; supplier price check</td><td>Manager</td><td class="t">1 day</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="launch">
+      <h2>90 days to step back</h2>
+      <p>You cannot be absent on day one. Build the system while you are still in the shop, then hand it over in stages.</p>
+      <div class="phases">
+        <div class="phase"><div class="when">Before opening</div><div>Set up the till, stock items and recipes in it. Write recipe cards and checklists. Hire the manager first and have them help hire staff.<ul><li>Done when: a test day runs with every sale, clock-in and checklist recorded.</li></ul></div></div>
+        <div class="phase"><div class="when">Days 1–30</div><div>You work in the shop alongside the manager. Fix every step that confuses staff. Turn on the nightly report and alerts.<ul><li>Done when: the manager runs a full day while you only watch.</li></ul></div></div>
+        <div class="phase"><div class="when">Days 31–60</div><div>You are in the shop two days a week. The manager writes the rota, approves orders and trains new staff. Set the hourly baking plan from real sales.<ul><li>Done when: two weeks with no red numbers and no calls to you.</li></ul></div></div>
+        <div class="phase"><div class="when">Days 61–90</div><div>You stop scheduled visits. Run only the nightly report, the Monday call and the monthly review. Start the manager bonus.<ul><li>Done when: a month closes at or above your target profit without you in the shop.</li></ul></div></div>
+      </div>
+    </section>
+  </main>
+</div>
