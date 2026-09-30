@@ -116,7 +116,7 @@ ol.steps { padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
       <div class="eyebrow">Operations playbook · Siliguri, West Bengal</div>
       <h1>Cookie Shop Operations Playbook</h1>
       <p class="lede">How a walk-in cookie store in Siliguri runs every day without the owner in it. Software records every bill, every UPI payment, every stock movement and every checklist. Staff follow written steps. You read one report a night on WhatsApp and spend about two hours a week on the business.</p>
-      <p class="muted" style="margin-top:12px">Targets match the Siliguri figures in the <a href="https://claude.ai/artifact/UzKFWwoXXGEkMxX7dPm94Z">Cookie Shop Profit Planner</a>: 250 cookies a day at ₹50, break-even near 170 a day. Costs, rents and rules here are 2026 estimates; confirm them locally and with a CA before you sign anything.</p>
+      <p class="muted" style="margin-top:12px">Targets match the Siliguri figures in the <a href="https://claude.ai/artifact/UzKFWwoXXGEkMxX7dPm94Z">Cookie Shop Profit Planner</a>: 250 cookies of 100 g a day at ₹60, costing ₹30 each to make, with break-even near 227 a day. Costs, rents and rules here are 2026 estimates; confirm them locally and with a CA before you sign anything.</p>
     </header>
 
     <section id="roles">
@@ -164,7 +164,7 @@ ol.steps { padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
 
     <section id="licences">
       <h2>Licences</h2>
-      <p>At 250 cookies a day at ₹50, sales come to about ₹45 lakh a year. That size decides which registrations you need. A local CA can file most of these for you in two to three weeks.</p>
+      <p>At 250 cookies a day at ₹60, sales come to about ₹54 lakh a year. That size decides which registrations you need. A local CA can file most of these for you in two to three weeks.</p>
       <div class="tablebox">
         <table>
           <thead><tr><th>Registration</th><th>Why you need it</th><th>Where</th></tr></thead>
@@ -283,7 +283,7 @@ flowchart LR
             <tr><td class="rule"><span class="if">Checklist not done by deadline</span></td><td>Reminder, then escalate after 30 minutes</td><td>Shift lead, then manager</td></tr>
             <tr><td class="rule"><span class="if">Fridge above 5 °C for 20 min</span></td><td>Alert, usually a power cut; check the inverter</td><td>Manager</td></tr>
             <tr><td class="rule"><span class="if">No attendance 10 min after shift start</span></td><td>Alert and ask other staff to cover</td><td>Manager, staff group</td></tr>
-            <tr><td class="rule"><span class="if">Staff cost above 25% of sales this month</span></td><td>Warn before the next rota is made</td><td>Manager</td></tr>
+            <tr><td class="rule"><span class="if">Staff cost above 20% of sales this month</span></td><td>Warn before the next rota is made</td><td>Manager</td></tr>
             <tr><td class="rule"><span class="if">Cash or UPI short at closing</span></td><td>Flag the shift and the person who closed</td><td>Manager, owner</td></tr>
             <tr><td class="rule"><span class="if">Bill cancelled or discounted</span></td><td>Log with the staff name; weekly summary</td><td>Manager, owner</td></tr>
             <tr><td class="rule"><span class="if">Door opens after closing</span></td><td>CCTV clip to phone</td><td>Owner, manager</td></tr>
@@ -303,9 +303,9 @@ flowchart LR
         <table>
           <thead><tr><th>Measure</th><th>Target</th><th>Amber</th><th>Red</th></tr></thead>
           <tbody>
-            <tr><td>Cookies sold per day</td><td class="t g">250+</td><td class="t w">170–249</td><td class="t r">under 170 (break-even)</td></tr>
-            <tr><td>Ingredients and packaging, % of sales</td><td class="t g">under 32%</td><td class="t w">32–36%</td><td class="t r">over 36%</td></tr>
-            <tr><td>Staff cost, % of sales</td><td class="t g">under 25%</td><td class="t w">25–30%</td><td class="t r">over 30%</td></tr>
+            <tr><td>Cookies sold per day</td><td class="t g">250+</td><td class="t w">227–249</td><td class="t r">under 227 (break-even)</td></tr>
+            <tr><td>Ingredients and packaging per cookie</td><td class="t g">₹30 or less</td><td class="t w">₹31–33</td><td class="t r">over ₹33</td></tr>
+            <tr><td>Staff cost, % of sales</td><td class="t g">under 20%</td><td class="t w">20–25%</td><td class="t r">over 25%</td></tr>
             <tr><td>Waste, % of cookies baked</td><td class="t g">under 8%</td><td class="t w">8–12%</td><td class="t r">over 12%</td></tr>
             <tr><td>Cash and UPI difference per day</td><td class="t g">₹0</td><td class="t w">under ₹100</td><td class="t r">any repeat</td></tr>
             <tr><td>Checklists done on time</td><td class="t g">100%</td><td class="t w">90–99%</td><td class="t r">under 90%</td></tr>
@@ -320,7 +320,7 @@ flowchart LR
       <h2>Recipes and baking plan</h2>
       <p>Anyone trained for five days should bake a cookie you cannot tell apart from yours. That needs recipes by weight, not by cups, and a fixed plan for how much to bake each hour.</p>
       <h3>Recipe card format</h3>
-      <div class="recipe">CLASSIC CHOC CHIP             Batch: 80 cookies at 40 g dough each
+      <div class="recipe">CLASSIC CHOC CHIP             Batch: 32 cookies at 100 g dough each
 ─────────────────────────────────────────────────────────────
 Butter, unsalted, soft      680 g     Mix 3 min with sugars
 Brown sugar                 540 g
@@ -332,7 +332,8 @@ Baking soda                 10 g
 Salt                        12 g
 Chocolate chips             720 g     Fold in by hand
 ─────────────────────────────────────────────────────────────
-Scoop 40 g · Chill 24 h minimum · Bake 180 °C, 9–10 min
+Scoop 100 g · Chill 24 h minimum · Bake 175 °C, 13–15 min
+Max 6 cookies per tray; they spread
 Done when: edges golden, centre still soft
 Photo of correct cookie: pinned above the oven
 Eggless version: separate card, separate tray, label "Eggless"</div>

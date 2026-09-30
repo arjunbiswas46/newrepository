@@ -108,7 +108,7 @@ ul.sys b { font-weight: 600; }
     <div class="inputs">
       <section class="card">
         <h2>Cost of one cookie</h2>
-        <p class="hint">Ingredient cost for one 40 g cookie. Weigh a batch, divide the batch cost by the number of cookies it makes.</p>
+        <p class="hint">Cost to make one 100 g cookie, ₹30 in total including packaging. Split it into lines so you can see which ingredient moves the cost. Waste is added on top, because unsold cookies still cost money.</p>
         <div class="rows">
           <label for="flour">Flour<div class="field"><span class="c"></span><input id="flour" type="number" step="0.01" min="0"></div></label>
           <label for="butter">Butter<div class="field"><span class="c"></span><input id="butter" type="number" step="0.01" min="0"></div></label>
@@ -220,12 +220,12 @@ ul.sys b { font-weight: 600; }
 <script>
 const DEFAULTS = {
   currency: "₹",
-  flour: 0.4, butter: 5.1, sugar: 0.9, eggs: 0.6, choc: 3.6, other: 0.5, pack: 3, waste: 8,
-  price: 50, perDay: 250, days: 30, cardFee: 3, gst: 5,
+  flour: 1, butter: 12, sugar: 2, eggs: 1.5, choc: 8, other: 1.5, pack: 4, waste: 8,
+  price: 60, perDay: 250, days: 30, cardFee: 3, gst: 5,
   staff: 4, wage: 12000, manager: 25000, payTax: 10,
   rent: 35000, util: 12000, software: 2500, insur: 1500, mkt: 8000, misc: 5000, loan: 10000
 };
-const KEY = "cookie-planner-siliguri-v2";
+const KEY = "cookie-planner-siliguri-v3";
 let state = { ...DEFAULTS };
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) state = { ...DEFAULTS, ...s }; } catch (e) {}
 
