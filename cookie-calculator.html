@@ -13,6 +13,7 @@
   --accent-soft: #f3e6dc;
   --butter: #e9b949;
   --good: #2f7d4f;
+  --slate: #8a9aa8;
   --bad: #b3372a;
   --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body: "Figtree", "Segoe UI", system-ui, sans-serif;
@@ -21,13 +22,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #1a1411; --panel: #241c18; --fg: #f3e9e3; --muted: #b3a197; --line: #3a2e28;
-    --accent: #e0a47a; --accent-soft: #3a2a20; --butter: #e9c060; --good: #6cc48f; --bad: #f08576;
+    --accent: #e0a47a; --accent-soft: #3a2a20; --butter: #e9c060; --slate: #7d8c99; --good: #6cc48f; --bad: #f08576;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #1a1411; --panel: #241c18; --fg: #f3e9e3; --muted: #b3a197; --line: #3a2e28;
-  --accent: #e0a47a; --accent-soft: #3a2a20; --butter: #e9c060; --good: #6cc48f; --bad: #f08576;
+  --accent: #e0a47a; --accent-soft: #3a2a20; --butter: #e9c060; --slate: #7d8c99; --good: #6cc48f; --bad: #f08576;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -90,13 +91,13 @@ ul.sys b { font-weight: 600; }
   <header>
     <div>
       <h1>Cookie Shop Profit Planner</h1>
-      <p class="sub">A walk-in cookie store run by a manager and staff, with no owner behind the counter. Every shift is paid for in the numbers, so the profit shown is what you actually take home.</p>
+      <p class="sub">A walk-in cookie store in Siliguri run by a manager and staff, with no owner behind the counter. Every salary is paid for in the numbers, so the profit shown is what you actually take home. Starting figures are 2026 estimates for Siliguri; replace them with real quotes.</p>
     </div>
     <div class="cur">
-      <span class="example">Example figures</span>
+      <span class="example">Siliguri estimates</span>
       <label for="currency" style="display:flex;align-items:center;gap:6px">Currency
         <select id="currency">
-          <option value="$">$ USD</option><option value="₹">₹ INR</option><option value="£">£ GBP</option><option value="€">€ EUR</option><option value="C$">C$ CAD</option><option value="A$">A$ AUD</option>
+          <option value="₹">₹ INR</option><option value="$">$ USD</option><option value="£">£ GBP</option><option value="€">€ EUR</option><option value="C$">C$ CAD</option><option value="A$">A$ AUD</option>
         </select>
       </label>
       <button class="reset" id="reset" type="button">Reset</button>
@@ -107,15 +108,15 @@ ul.sys b { font-weight: 600; }
     <div class="inputs">
       <section class="card">
         <h2>Cost of one cookie</h2>
-        <p class="hint">Ingredient cost per cookie. Weigh a batch, divide the batch cost by the number of cookies it makes.</p>
+        <p class="hint">Ingredient cost for one 40 g cookie. Weigh a batch, divide the batch cost by the number of cookies it makes.</p>
         <div class="rows">
           <label for="flour">Flour<div class="field"><span class="c"></span><input id="flour" type="number" step="0.01" min="0"></div></label>
           <label for="butter">Butter<div class="field"><span class="c"></span><input id="butter" type="number" step="0.01" min="0"></div></label>
           <label for="sugar">Sugar<div class="field"><span class="c"></span><input id="sugar" type="number" step="0.01" min="0"></div></label>
           <label for="eggs">Eggs<div class="field"><span class="c"></span><input id="eggs" type="number" step="0.01" min="0"></div></label>
-          <label for="choc">Chocolate / mix-ins<div class="field"><span class="c"></span><input id="choc" type="number" step="0.01" min="0"></div></label>
+          <label for="choc">Chocolate / chips<div class="field"><span class="c"></span><input id="choc" type="number" step="0.01" min="0"></div></label>
           <label for="other">Vanilla, salt, soda<div class="field"><span class="c"></span><input id="other" type="number" step="0.01" min="0"></div></label>
-          <label for="pack">Bag, box, label<div class="field"><span class="c"></span><input id="pack" type="number" step="0.01" min="0"></div></label>
+          <label for="pack">Paper bag, box share, label<div class="field"><span class="c"></span><input id="pack" type="number" step="0.01" min="0"></div></label>
           <label for="waste">Waste and unsold<div class="field"><input id="waste" type="number" step="1" min="0" max="100"><span>%</span></div></label>
         </div>
         <div class="sum">True cost per cookie sold <b id="unitCost"></b></div>
@@ -123,25 +124,27 @@ ul.sys b { font-weight: 600; }
 
       <section class="card">
         <h2>Sales</h2>
-        <p class="hint">Use the average price across singles, boxes of 6 and dozens.</p>
+        <p class="hint">Price is what the customer pays, including GST. Use the average across singles, boxes of 6 and gift boxes.</p>
         <div class="rows">
           <label for="price">Average price per cookie<div class="field"><span class="c"></span><input id="price" type="number" step="0.05" min="0"></div></label>
           <label for="perDay">Cookies sold per day<div class="field"><input id="perDay" type="number" step="10" min="0"><span>/day</span></div></label>
           <label for="days">Days open per month<div class="field"><input id="days" type="number" step="1" min="0" max="31"><span>days</span></div></label>
           <label for="cardFee">Card and delivery-app fees<div class="field"><input id="cardFee" type="number" step="0.1" min="0"><span>% of sales</span></div></label>
+          <label for="gst">GST included in price<div class="field"><input id="gst" type="number" step="1" min="0"><span>%</span></div></label>
+        </div>
+        <p class="hint" style="margin:12px 0 0">UPI costs nothing, cards cost about 2%, and Swiggy or Zomato take far more, so this is a blend. Biscuits and bakery items are taxed at 5% GST since September 2025; set it to 0 if you are not GST-registered.</p>
+        <div>
         </div>
       </section>
 
       <section class="card">
         <h2>Staff (owner not in store)</h2>
-        <p class="hint">A salaried manager runs the shop. Shift staff bake and sell. Prep hours cover baking before opening and cleaning after close.</p>
+        <p class="hint">A salaried manager runs the shop. Four staff cover two shifts a day, two at a time, with a weekly day off each, so the shop can open all 30 days. The West Bengal minimum wage for unskilled shop staff in city areas is ₹10,558 a month from July 2026.</p>
         <div class="rows">
-          <label for="hoursOpen">Hours open per day<div class="field"><input id="hoursOpen" type="number" step="0.5" min="0"><span>hrs</span></div></label>
-          <label for="prep">Prep and close hours<div class="field"><input id="prep" type="number" step="0.5" min="0"><span>hrs</span></div></label>
-          <label for="staff">Staff on each shift<div class="field"><input id="staff" type="number" step="1" min="0"><span>people</span></div></label>
-          <label for="wage">Staff hourly wage<div class="field"><span class="c"></span><input id="wage" type="number" step="0.5" min="0"></div></label>
-          <label for="manager">Manager monthly salary<div class="field"><span class="c"></span><input id="manager" type="number" step="100" min="0"></div></label>
-          <label for="payTax">Payroll taxes and benefits<div class="field"><input id="payTax" type="number" step="1" min="0"><span>%</span></div></label>
+          <label for="staff">Number of staff<div class="field"><input id="staff" type="number" step="1" min="0"><span>people</span></div></label>
+          <label for="wage">Monthly salary per staff<div class="field"><span class="c"></span><input id="wage" type="number" step="500" min="0"></div></label>
+          <label for="manager">Manager monthly salary<div class="field"><span class="c"></span><input id="manager" type="number" step="500" min="0"></div></label>
+          <label for="payTax">Puja bonus, staff meals, PT<div class="field"><input id="payTax" type="number" step="1" min="0"><span>% extra</span></div></label>
         </div>
         <div class="sum">Staff cost per month <b id="labor"></b></div>
       </section>
@@ -151,12 +154,12 @@ ul.sys b { font-weight: 600; }
         <p class="hint">Costs you pay whether you sell 10 cookies or 10,000.</p>
         <div class="rows">
           <label for="rent">Rent<div class="field"><span class="c"></span><input id="rent" type="number" step="50" min="0"></div></label>
-          <label for="util">Electricity, gas, water<div class="field"><span class="c"></span><input id="util" type="number" step="10" min="0"></div></label>
-          <label for="software">POS, scheduling, cameras<div class="field"><span class="c"></span><input id="software" type="number" step="10" min="0"></div></label>
-          <label for="insur">Insurance and licences<div class="field"><span class="c"></span><input id="insur" type="number" step="10" min="0"></div></label>
-          <label for="mkt">Marketing<div class="field"><span class="c"></span><input id="mkt" type="number" step="10" min="0"></div></label>
+          <label for="util">WBSEDCL power, LPG, water<div class="field"><span class="c"></span><input id="util" type="number" step="10" min="0"></div></label>
+          <label for="software">Billing app, internet, CCTV cloud<div class="field"><span class="c"></span><input id="software" type="number" step="10" min="0"></div></label>
+          <label for="insur">Insurance, FSSAI, trade licence<div class="field"><span class="c"></span><input id="insur" type="number" step="10" min="0"></div></label>
+          <label for="mkt">Instagram ads, flyers, sampling<div class="field"><span class="c"></span><input id="mkt" type="number" step="10" min="0"></div></label>
           <label for="misc">Repairs, cleaning, misc<div class="field"><span class="c"></span><input id="misc" type="number" step="10" min="0"></div></label>
-          <label for="loan">Loan / equipment payment<div class="field"><span class="c"></span><input id="loan" type="number" step="50" min="0"></div></label>
+          <label for="loan">Loan EMI (oven, fit-out)<div class="field"><span class="c"></span><input id="loan" type="number" step="50" min="0"></div></label>
         </div>
         <div class="sum">Fixed costs per month <b id="fixed"></b></div>
       </section>
@@ -173,7 +176,8 @@ ul.sys b { font-weight: 600; }
         <h2>Month at a glance</h2>
         <dl>
           <dt>Cookies sold</dt><dd id="rCount"></dd>
-          <dt>Revenue</dt><dd id="rRev"></dd>
+          <dt>Sales (customer pays)</dt><dd id="rRev"></dd>
+          <dt>GST to government</dt><dd id="rGst"></dd>
           <dt>Ingredients, packaging, waste</dt><dd id="rCogs"></dd>
           <dt>Card and app fees</dt><dd id="rFees"></dd>
           <dt>Staff</dt><dd id="rLabor"></dd>
@@ -188,7 +192,7 @@ ul.sys b { font-weight: 600; }
 
       <section class="card">
         <h2>If sales change</h2>
-        <p class="hint">Staff and fixed costs stay the same; only volume moves.</p>
+        <p class="hint">Salaries and fixed costs stay the same; only volume moves.</p>
         <div style="overflow-x:auto">
           <table>
             <thead><tr><th>Sales</th><th>Cookies/day</th><th>Profit/month</th></tr></thead>
@@ -205,8 +209,9 @@ ul.sys b { font-weight: 600; }
           <li><b>POS with inventory.</b> Daily sales, best sellers and stock alerts reach your phone every night.</li>
           <li><b>Par levels for dough.</b> Bake to a set number per hour of day to keep waste near your target.</li>
           <li><b>Manager bonus tied to profit.</b> A share of profit above break-even keeps them thinking like an owner.</li>
-          <li><b>Cameras and a weekly review.</b> One hour a week comparing sales, waste and labour to this plan.</li>
+          <li><b>Cameras and a weekly review.</b> One hour a week comparing sales, waste and staff cost to this plan.</li>
         </ul>
+        <p class="hint" style="margin:12px 0 0">The full system is in the <a href="https://claude.ai/artifact/W9Pw5aJgr6FhfW6Yhd1Smx" style="color:var(--accent)">Operations Playbook</a>.</p>
       </section>
     </div>
   </div>
@@ -214,13 +219,13 @@ ul.sys b { font-weight: 600; }
 
 <script>
 const DEFAULTS = {
-  currency: "$",
-  flour: 0.04, butter: 0.18, sugar: 0.05, eggs: 0.04, choc: 0.20, other: 0.03, pack: 0.12, waste: 8,
-  price: 3.75, perDay: 400, days: 28, cardFee: 2.9,
-  hoursOpen: 10, prep: 2, staff: 2, wage: 16, manager: 4200, payTax: 10,
-  rent: 3500, util: 600, software: 150, insur: 250, mkt: 400, misc: 300, loan: 0
+  currency: "₹",
+  flour: 0.4, butter: 5.1, sugar: 0.9, eggs: 0.6, choc: 3.6, other: 0.5, pack: 3, waste: 8,
+  price: 50, perDay: 250, days: 30, cardFee: 3, gst: 5,
+  staff: 4, wage: 12000, manager: 25000, payTax: 10,
+  rent: 35000, util: 12000, software: 2500, insur: 1500, mkt: 8000, misc: 5000, loan: 10000
 };
-const KEY = "cookie-planner-v1";
+const KEY = "cookie-planner-siliguri-v2";
 let state = { ...DEFAULTS };
 try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s) state = { ...DEFAULTS, ...s }; } catch (e) {}
 
@@ -228,7 +233,8 @@ const $ = id => document.getElementById(id);
 const num = k => { const v = parseFloat(state[k]); return isFinite(v) ? v : 0; };
 const money = (v, dp = 0) => {
   const sign = v < 0 ? "−" : "";
-  return sign + state.currency + Math.abs(v).toLocaleString(undefined, { minimumFractionDigits: dp, maximumFractionDigits: dp });
+  const loc = state.currency === "₹" ? "en-IN" : undefined;
+  return sign + state.currency + Math.abs(v).toLocaleString(loc, { minimumFractionDigits: dp, maximumFractionDigits: dp });
 };
 
 function calc(perDayOverride) {
@@ -239,16 +245,19 @@ function calc(perDayOverride) {
   const unitCost = (ingred + num("pack")) / (1 - w);
   const price = num("price");
   const feeRate = num("cardFee") / 100;
-  const unitMargin = price - unitCost - price * feeRate;
+  // Price includes GST; the GST share goes to the government, fees are charged on the full amount paid.
+  const netPrice = price / (1 + num("gst") / 100);
+  const unitMargin = netPrice - unitCost - price * feeRate;
   const count = perDay * num("days");
   const rev = count * price;
+  const gst = count * (price - netPrice);
   const cogs = count * unitCost;
   const fees = rev * feeRate;
-  const labor = ((num("hoursOpen") + num("prep")) * num("staff") * num("wage") * num("days") + num("manager")) * (1 + num("payTax") / 100);
+  const labor = (num("staff") * num("wage") + num("manager")) * (1 + num("payTax") / 100);
   const fixed = ["rent","util","software","insur","mkt","misc","loan"].reduce((a, k) => a + num(k), 0);
-  const profit = rev - cogs - fees - labor - fixed;
+  const profit = rev - gst - cogs - fees - labor - fixed;
   const bePerDay = unitMargin > 0 && num("days") > 0 ? (labor + fixed) / unitMargin / num("days") : Infinity;
-  return { unitCost, unitMargin, count, rev, cogs, fees, labor, fixed, profit, bePerDay, perDay };
+  return { unitCost, unitMargin, count, rev, gst, cogs, fees, labor, fixed, profit, bePerDay, perDay };
 }
 
 function render() {
@@ -264,6 +273,7 @@ function render() {
   $("margin").textContent = r.rev > 0 ? `${(r.profit / r.rev * 100).toFixed(1)}% of revenue` : "";
   $("rCount").textContent = Math.round(r.count).toLocaleString();
   $("rRev").textContent = money(r.rev);
+  $("rGst").textContent = money(-r.gst);
   $("rCogs").textContent = money(-r.cogs);
   $("rFees").textContent = money(-r.fees);
   $("rLabor").textContent = money(-r.labor);
@@ -275,6 +285,7 @@ function render() {
 
   const parts = [
     ["Ingredients & packaging", r.cogs, "var(--butter)"],
+    ["GST", r.gst, "var(--slate)"],
     ["Fees", r.fees, "var(--muted)"],
     ["Staff", r.labor, "var(--accent)"],
     ["Fixed", r.fixed, "var(--bad)"],

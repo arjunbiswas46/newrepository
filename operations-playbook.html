@@ -95,6 +95,8 @@ ol.steps { padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
   <nav class="toc" aria-label="Sections">
     <ol>
       <li><a href="#roles">Who does what</a></li>
+      <li><a href="#licences">Licences</a></li>
+      <li><a href="#budget">Setup budget</a></li>
       <li><a href="#stack">The tool stack</a></li>
       <li><a href="#flow">How data flows</a></li>
       <li><a href="#day">A day in the shop</a></li>
@@ -103,6 +105,7 @@ ol.steps { padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
       <li><a href="#sops">Recipes and baking plan</a></li>
       <li><a href="#controls">Stopping leaks</a></li>
       <li><a href="#people">Hiring and training</a></li>
+      <li><a href="#local">Siliguri year</a></li>
       <li><a href="#rhythm">Weekly and monthly</a></li>
       <li><a href="#launch">90 days to step back</a></li>
     </ol>
@@ -110,10 +113,10 @@ ol.steps { padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
 
   <main>
     <header>
-      <div class="eyebrow">Operations playbook</div>
+      <div class="eyebrow">Operations playbook · Siliguri, West Bengal</div>
       <h1>Cookie Shop Operations Playbook</h1>
-      <p class="lede">How a walk-in cookie store runs every day without the owner in it. Software records every sale, every stock movement and every checklist. Staff follow written steps. You read one report a night and spend about two hours a week on the business.</p>
-      <p class="muted" style="margin-top:12px">Targets match the example figures in the <a href="https://claude.ai/artifact/UzKFWwoXXGEkMxX7dPm94Z">Cookie Shop Profit Planner</a>: 400 cookies a day, break-even near 230. Change them once you have your own numbers.</p>
+      <p class="lede">How a walk-in cookie store in Siliguri runs every day without the owner in it. Software records every bill, every UPI payment, every stock movement and every checklist. Staff follow written steps. You read one report a night on WhatsApp and spend about two hours a week on the business.</p>
+      <p class="muted" style="margin-top:12px">Targets match the Siliguri figures in the <a href="https://claude.ai/artifact/UzKFWwoXXGEkMxX7dPm94Z">Cookie Shop Profit Planner</a>: 250 cookies a day at ₹50, break-even near 170 a day. Costs, rents and rules here are 2026 estimates; confirm them locally and with a CA before you sign anything.</p>
     </header>
 
     <section id="roles">
@@ -124,72 +127,120 @@ ol.steps { padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
           <h3>Owner (you)</h3>
           <div class="hrs">about 2 hrs / week</div>
           <ul>
-            <li>Read the nightly report (5 minutes)</li>
+            <li>Read the nightly WhatsApp report (5 minutes)</li>
             <li>Weekly review call with the manager</li>
-            <li>Approve spending above a set limit</li>
+            <li>Approve spending above ₹5,000</li>
             <li>Set prices, the menu and targets</li>
             <li>Hire or fire the manager</li>
           </ul>
         </div>
         <div class="role">
           <h3>Store manager</h3>
-          <div class="hrs">full time, salaried</div>
+          <div class="hrs">full time · about ₹25,000 / month</div>
           <ul>
-            <li>Writes the staff rota</li>
-            <li>Approves supplier orders</li>
+            <li>Writes the shift rota and weekly offs</li>
+            <li>Approves supplier orders up to ₹5,000</li>
             <li>Trains staff and checks their work</li>
             <li>Handles complaints and refunds</li>
-            <li>Owns the numbers in section 6</li>
+            <li>Owns the numbers in section 8</li>
           </ul>
         </div>
         <div class="role">
-          <h3>Shift staff</h3>
-          <div class="hrs">2 per shift, hourly</div>
+          <h3>Shop staff</h3>
+          <div class="hrs">4 people · about ₹12,000 / month</div>
           <ul>
+            <li>Two shifts a day, two people each</li>
             <li>Bake to the hourly plan</li>
-            <li>Serve customers and use the till</li>
+            <li>Serve customers and bill every sale</li>
             <li>Complete opening and closing checklists</li>
             <li>Log waste at the end of each day</li>
-            <li>One senior staff member acts as shift lead</li>
           </ul>
         </div>
       </div>
       <div class="callout">
-        <p><b>Spending limit.</b> The manager can spend up to a fixed amount per order without asking, for example 300 in your currency. Anything larger goes to you for approval in the purchasing app. This one rule removes most of the day-to-day calls to the owner.</p>
+        <p><b>Spending limit.</b> The manager can spend up to ₹5,000 per order without asking. Anything larger comes to you on WhatsApp for a yes or no. This one rule removes most of the day-to-day calls to the owner.</p>
       </div>
+    </section>
+
+    <section id="licences">
+      <h2>Licences</h2>
+      <p>At 250 cookies a day at ₹50, sales come to about ₹45 lakh a year. That size decides which registrations you need. A local CA can file most of these for you in two to three weeks.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Registration</th><th>Why you need it</th><th>Where</th></tr></thead>
+          <tbody>
+            <tr><td>FSSAI State Licence</td><td>Food businesses with sales above ₹12 lakh a year need a licence, not just basic registration. Also needed by Swiggy and Zomato.</td><td>FoSCoS portal (foscos.fssai.gov.in)</td></tr>
+            <tr><td>Trade licence</td><td>Permission to trade from your shop address. Renew every year.</td><td>Siliguri Municipal Corporation, or the Silpasathi portal</td></tr>
+            <tr><td>GST registration</td><td>Required once sales pass ₹40 lakh a year, and required to sell on delivery apps. Biscuits and bakery items are at 5% GST since 22 September 2025.</td><td>GST portal (gst.gov.in)</td></tr>
+            <tr><td>Shops and Establishments</td><td>Registers you as an employer; sets working hours and weekly offs for staff.</td><td>West Bengal Labour Department</td></tr>
+            <tr><td>Professional Tax</td><td>Employer enrolment, and monthly deduction from salaries above the exempt limit.</td><td>West Bengal Profession Tax portal</td></tr>
+            <tr><td>Udyam registration</td><td>Free. Makes you eligible for small-business loans and schemes.</td><td>udyamregistration.gov.in</td></tr>
+            <tr><td>FoSTaC food safety training</td><td>FSSAI licence holders need a trained food safety supervisor. Send the manager on the one-day course.</td><td>FSSAI FoSTaC partners</td></tr>
+            <tr><td>Packaged-goods labels</td><td>Only if you sell sealed boxes: label with MRP, net weight, date, FSSAI number and ingredients.</td><td>Legal Metrology and FSSAI labelling rules</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="budget">
+      <h2>Setup budget</h2>
+      <p>Rough ranges for a 200 to 300 sq ft shop in Siliguri. Get three quotes for each line.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Item</th><th>Estimate</th></tr></thead>
+          <tbody>
+            <tr><td>Shop deposit (3 to 6 months' rent)</td><td class="t">₹1,00,000 – 2,00,000</td></tr>
+            <tr><td>Interior, counter, signboard, lighting</td><td class="t">₹2,00,000 – 3,50,000</td></tr>
+            <tr><td>Commercial convection oven</td><td class="t">₹60,000 – 1,50,000</td></tr>
+            <tr><td>Planetary mixer, 10 to 20 litre</td><td class="t">₹40,000 – 90,000</td></tr>
+            <tr><td>Deep freezer and fridge</td><td class="t">₹50,000 – 80,000</td></tr>
+            <tr><td>Display counter and jars</td><td class="t">₹40,000 – 80,000</td></tr>
+            <tr><td>Billing tablet, printer, cash drawer, UPI speaker</td><td class="t">₹20,000 – 35,000</td></tr>
+            <tr><td>CCTV (4 cameras) and Wi-Fi</td><td class="t">₹15,000 – 25,000</td></tr>
+            <tr><td>Inverter and battery for fridges and billing</td><td class="t">₹25,000 – 40,000</td></tr>
+            <tr><td>Trays, scales, scoops, racks</td><td class="t">₹20,000 – 40,000</td></tr>
+            <tr><td>Licences and CA fees</td><td class="t">₹10,000 – 25,000</td></tr>
+            <tr><td>Launch marketing and free samples</td><td class="t">₹25,000 – 50,000</td></tr>
+            <tr><td>First stock of ingredients and packaging</td><td class="t">₹30,000 – 50,000</td></tr>
+            <tr><td>Cash to cover 3 months of salaries and rent while sales build</td><td class="t">₹3,00,000 – 4,50,000</td></tr>
+            <tr><td><b>Total</b></td><td class="t"><b>about ₹9.5 – 16.5 lakh</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted">For funding, ask your bank about a Mudra loan and whether your plan qualifies under PMEGP, since you make the product yourself. The Udyam registration above helps with both.</p>
     </section>
 
     <section id="stack">
       <h2>The tool stack</h2>
-      <p>Pick one tool for each job below. The examples are common choices; which ones you can use depends on your country. Choose a till system first, because most of the automation runs through it.</p>
+      <p>Pick one tool for each job. The examples are widely used in India. Choose the billing app first, because most of the automation runs through it.</p>
       <div class="stack">
-        <div class="tool"><b>Till system with inventory</b><div class="does">Takes payments, removes ingredients from stock with each sale, sends daily reports.</div><div class="ex">Square, Toast, Lightspeed, Loyverse; Petpooja in India</div></div>
-        <div class="tool"><b>Staff scheduling and clock-in</b><div class="does">Rota, shift swaps, clock-in by phone or tablet at the shop only, timesheets for payroll.</div><div class="ex">Homebase, 7shifts, Deputy, When I Work</div></div>
-        <div class="tool"><b>Digital checklists</b><div class="does">Opening, closing, cleaning and temperature logs with photos and time stamps.</div><div class="ex">Jolt, Trail, Lumiform, or a free Google Form</div></div>
-        <div class="tool"><b>Accounting</b><div class="does">Pulls sales from the till and payments from the bank; monthly profit and loss.</div><div class="ex">QuickBooks, Xero, Zoho Books</div></div>
-        <div class="tool"><b>Cloud security cameras</b><div class="does">View the till, oven and door from your phone. Motion alerts after closing time.</div><div class="ex">Verkada, Wyze, Hikvision with cloud recording</div></div>
-        <div class="tool"><b>Fridge and freezer sensors</b><div class="does">Sends a text if the dough fridge warms above 5 °C.</div><div class="ex">SensorPush, Govee, or a sensor bundled with your checklist app</div></div>
-        <div class="tool"><b>Online ordering and delivery</b><div class="does">Orders go straight into the till system, not a separate tablet.</div><div class="ex">Built-in ordering from your till, plus delivery apps</div></div>
-        <div class="tool"><b>Loyalty and reviews</b><div class="does">Automatic points with each sale; asks happy customers for a Google review.</div><div class="ex">Usually built into the till system</div></div>
+        <div class="tool"><b>Billing app with stock tracking</b><div class="does">Bills every sale, takes stock out by recipe, shows a UPI QR with the exact amount on each bill, and sends a daily report.</div><div class="ex">Petpooja, Restroworks (Posist), DotPe, or free Loyverse</div></div>
+        <div class="tool"><b>UPI speaker</b><div class="does">Reads out every payment, so staff cannot claim a payment that never arrived.</div><div class="ex">PhonePe SmartSpeaker, Paytm Soundbox</div></div>
+        <div class="tool"><b>Attendance and salary</b><div class="does">Staff mark attendance with a selfie at the shop location. Salary, leave and advances are calculated automatically.</div><div class="ex">PagarBook, Kredily, Zoho Payroll</div></div>
+        <div class="tool"><b>Digital checklists</b><div class="does">Opening, closing, cleaning and temperature checks with photos and time stamps.</div><div class="ex">Google Forms (free) sent through WhatsApp, or Jolt</div></div>
+        <div class="tool"><b>Accounting</b><div class="does">Imports sales from the billing app; your CA files GST from it.</div><div class="ex">Zoho Books, Tally, Vyapar</div></div>
+        <div class="tool"><b>CCTV with phone app</b><div class="does">See the counter, oven and door from anywhere. Motion alerts after closing.</div><div class="ex">CP Plus, Hikvision</div></div>
+        <div class="tool"><b>Fridge temperature sensor</b><div class="does">Wi-Fi sensor that alerts your phone if the dough fridge warms up during a power cut.</div><div class="ex">Any Wi-Fi sensor with phone alerts</div></div>
+        <div class="tool"><b>Orders and gift boxes</b><div class="does">Delivery apps for reach; WhatsApp Business catalogue for direct orders with no commission.</div><div class="ex">Swiggy, Zomato, magicpin, WhatsApp Business</div></div>
       </div>
     </section>
 
     <section id="flow">
       <h2>How data flows</h2>
-      <p>Each sale updates stock, reports and accounts with no one typing it twice. People only step in where something needs judgement.</p>
+      <p>Each bill updates stock, reports and accounts with no one typing it twice. People only step in where something needs judgement.</p>
       <div class="flow">
 <pre class="mermaid">
 flowchart LR
-  A[Customer buys cookies] --> B[Till system]
+  A[Customer buys cookies] --> B[Billing app]
+  B --> P[UPI QR on bill]
   B --> C[Stock goes down by recipe]
   C -->|below reorder level| D[Draft supplier order]
   D --> E{Manager approves}
   E --> F[Supplier delivers]
   F --> C
-  B --> G[Nightly report to owner]
-  B --> H[Accounting software]
-  I[Staff clock in] --> J[Timesheets]
-  J --> H
+  B --> G[Nightly WhatsApp report to owner]
+  B --> H[Accounting and GST]
+  I[Selfie attendance] --> J[Salary sheet]
   K[Checklists and sensors] -->|missed or out of range| L[Alert to manager]
 </pre>
       </div>
@@ -197,22 +248,23 @@ flowchart LR
 
     <section id="day">
       <h2>A day in the shop</h2>
-      <p>Example times for a shop open 9:00 to 19:00. Each step says who does it and where the proof is recorded.</p>
+      <p>For a shop open 10:00 to 21:30, seven days a week. The morning shift works 8:30 to 17:30 and the evening shift 12:30 to 22:00, so both are in the shop over lunch and the evening rush.</p>
       <div class="tablebox">
         <table>
           <thead><tr><th>Time</th><th>What happens</th><th>Who</th><th>Recorded in</th></tr></thead>
           <tbody>
-            <tr><td class="t">7:30</td><td>Opener clocks in. Photo of the fridge thermometer. Ovens on.</td><td><span class="tag people">Staff</span></td><td>Clock-in app, checklist</td></tr>
-            <tr><td class="t">7:40</td><td>Bake the opening batch from the hourly plan. Set up the display.</td><td><span class="tag people">Staff</span></td><td>Opening checklist</td></tr>
-            <tr><td class="t">8:50</td><td>Count the cash float. Checklist must be finished before the till opens.</td><td><span class="tag people">Shift lead</span></td><td>Till system</td></tr>
-            <tr><td class="t">9:00</td><td>If the opening checklist is not complete, the manager gets a text.</td><td><span class="tag auto">Automatic</span></td><td>Checklist app</td></tr>
-            <tr><td class="t">Every hour</td><td>Bake to the plan. Top up the display so it never looks empty.</td><td><span class="tag people">Staff</span></td><td>Baking plan sheet</td></tr>
-            <tr><td class="t">13:00</td><td>Midday check: if sales are 25% below the same weekday last month, the manager is told to post a promotion.</td><td><span class="tag auto">Automatic</span></td><td>Till report</td></tr>
-            <tr><td class="t">16:00</td><td>Last full bake. After this, bake small batches only when stock runs low.</td><td><span class="tag people">Shift lead</span></td><td>Baking plan sheet</td></tr>
-            <tr><td class="t">19:00</td><td>Close the till. Count cash; the till shows any difference.</td><td><span class="tag people">Shift lead</span></td><td>Till system</td></tr>
-            <tr><td class="t">19:10</td><td>Log unsold and burnt cookies as waste. Day-old cookies go to a discount box or donation.</td><td><span class="tag people">Staff</span></td><td>Till system (waste)</td></tr>
-            <tr><td class="t">19:30</td><td>Cleaning and closing checklist with photos. Clock out.</td><td><span class="tag people">Staff</span></td><td>Checklist, clock-in app</td></tr>
-            <tr><td class="t">21:00</td><td>Nightly report sent to owner and manager. Low stock turned into draft orders.</td><td><span class="tag auto">Automatic</span></td><td>Till system</td></tr>
+            <tr><td class="t">8:30</td><td>Morning shift marks attendance. Photo of the fridge thermometer. Ovens on.</td><td><span class="tag people">Staff</span></td><td>Attendance app, checklist</td></tr>
+            <tr><td class="t">8:45</td><td>Bake the opening batch from frozen dough. Set up the display.</td><td><span class="tag people">Staff</span></td><td>Opening checklist</td></tr>
+            <tr><td class="t">9:50</td><td>Count the cash float. Checklist must be done before billing opens.</td><td><span class="tag people">Shift lead</span></td><td>Billing app</td></tr>
+            <tr><td class="t">10:00</td><td>If the opening checklist is not complete, the manager gets a WhatsApp alert.</td><td><span class="tag auto">Automatic</span></td><td>Checklist app</td></tr>
+            <tr><td class="t">12:30</td><td>Evening shift arrives. Morning shift takes lunch breaks in turn.</td><td><span class="tag people">Staff</span></td><td>Attendance app</td></tr>
+            <tr><td class="t">14:00</td><td>Midday check: if sales are 25% below the same weekday last month, the manager is told to post an offer on Instagram and WhatsApp.</td><td><span class="tag auto">Automatic</span></td><td>Billing report</td></tr>
+            <tr><td class="t">17:30</td><td>Morning shift hands over and leaves.</td><td><span class="tag people">Shift lead</span></td><td>Handover note</td></tr>
+            <tr><td class="t">18:00</td><td>Last big bake for the evening rush. After this, bake 12 at a time when the display runs low.</td><td><span class="tag people">Staff</span></td><td>Baking plan sheet</td></tr>
+            <tr><td class="t">21:30</td><td>Close billing. Count cash; check UPI total in the bank app against the billing app.</td><td><span class="tag people">Shift lead</span></td><td>Billing app</td></tr>
+            <tr><td class="t">21:40</td><td>Log unsold and broken cookies as waste. Day-old cookies go to a half-price box the next morning.</td><td><span class="tag people">Staff</span></td><td>Billing app (waste)</td></tr>
+            <tr><td class="t">22:00</td><td>Cleaning and closing checklist with photos. Mark attendance out.</td><td><span class="tag people">Staff</span></td><td>Checklist, attendance app</td></tr>
+            <tr><td class="t">22:30</td><td>Nightly report to owner and manager. Low stock turned into draft orders.</td><td><span class="tag auto">Automatic</span></td><td>Billing app</td></tr>
           </tbody>
         </table>
       </div>
@@ -220,25 +272,25 @@ flowchart LR
 
     <section id="automations">
       <h2>Automations</h2>
-      <p>Set these up once. Each is a simple rule: when something happens, the system does something. Most till and checklist apps have these as built-in settings; others can be joined up with Zapier or Make.</p>
+      <p>Set these up once. Most billing and checklist apps have them as settings. Send all alerts to one WhatsApp group for the manager and you, so nothing gets lost in personal chats.</p>
       <div class="tablebox">
         <table>
           <thead><tr><th>When</th><th>Then</th><th>Goes to</th></tr></thead>
           <tbody>
-            <tr><td class="rule"><span class="if">Daily 21:00</span></td><td>Send sales, cookie count, average order, waste, labour cost and cash difference</td><td>Owner, manager</td></tr>
+            <tr><td class="rule"><span class="if">Daily 22:30</span></td><td>Send sales, cookies sold, average bill, cash vs UPI, waste and staff present</td><td>Owner, manager</td></tr>
             <tr><td class="rule"><span class="if">Stock below reorder level</span></td><td>Create a draft order to the usual supplier</td><td>Manager approves</td></tr>
-            <tr><td class="rule"><span class="if">Order above spending limit</span></td><td>Ask for approval before sending</td><td>Owner</td></tr>
-            <tr><td class="rule"><span class="if">Checklist not done by deadline</span></td><td>Text reminder, then escalate after 30 minutes</td><td>Shift lead, then manager</td></tr>
-            <tr><td class="rule"><span class="if">Fridge above 5 °C for 20 min</span></td><td>Text and phone call</td><td>Manager</td></tr>
-            <tr><td class="rule"><span class="if">Staff not clocked in 10 min after shift start</span></td><td>Alert and offer the shift to other staff</td><td>Manager, staff group</td></tr>
-            <tr><td class="rule"><span class="if">Labour cost above 40% of sales this week</span></td><td>Warn before next week's rota is published</td><td>Manager</td></tr>
-            <tr><td class="rule"><span class="if">Cash difference above a small set amount</span></td><td>Flag the shift and the person who closed</td><td>Manager, owner</td></tr>
-            <tr><td class="rule"><span class="if">Refund or void recorded</span></td><td>Log with the staff name; weekly summary</td><td>Manager, owner</td></tr>
-            <tr><td class="rule"><span class="if">Door opens after closing</span></td><td>Camera clip to phone</td><td>Owner, manager</td></tr>
+            <tr><td class="rule"><span class="if">Order above ₹5,000</span></td><td>Ask for approval before sending</td><td>Owner</td></tr>
+            <tr><td class="rule"><span class="if">Checklist not done by deadline</span></td><td>Reminder, then escalate after 30 minutes</td><td>Shift lead, then manager</td></tr>
+            <tr><td class="rule"><span class="if">Fridge above 5 °C for 20 min</span></td><td>Alert, usually a power cut; check the inverter</td><td>Manager</td></tr>
+            <tr><td class="rule"><span class="if">No attendance 10 min after shift start</span></td><td>Alert and ask other staff to cover</td><td>Manager, staff group</td></tr>
+            <tr><td class="rule"><span class="if">Staff cost above 25% of sales this month</span></td><td>Warn before the next rota is made</td><td>Manager</td></tr>
+            <tr><td class="rule"><span class="if">Cash or UPI short at closing</span></td><td>Flag the shift and the person who closed</td><td>Manager, owner</td></tr>
+            <tr><td class="rule"><span class="if">Bill cancelled or discounted</span></td><td>Log with the staff name; weekly summary</td><td>Manager, owner</td></tr>
+            <tr><td class="rule"><span class="if">Door opens after closing</span></td><td>CCTV clip to phone</td><td>Owner, manager</td></tr>
             <tr><td class="rule"><span class="if">Customer rates 4 or 5 stars</span></td><td>Ask for a Google review</td><td>Customer</td></tr>
             <tr><td class="rule"><span class="if">Customer rates 1 to 3 stars</span></td><td>Send privately to the manager to call back within 24 hours</td><td>Manager</td></tr>
-            <tr><td class="rule"><span class="if">Loyalty customer away 30 days</span></td><td>Send a free-cookie offer</td><td>Customer</td></tr>
-            <tr><td class="rule"><span class="if">1st of each month</span></td><td>Profit and loss from accounting software</td><td>Owner</td></tr>
+            <tr><td class="rule"><span class="if">Regular customer away 30 days</span></td><td>WhatsApp a free-cookie offer</td><td>Customer</td></tr>
+            <tr><td class="rule"><span class="if">1st of each month</span></td><td>Profit and loss, and GST figures for the CA</td><td>Owner, CA</td></tr>
           </tbody>
         </table>
       </div>
@@ -251,14 +303,14 @@ flowchart LR
         <table>
           <thead><tr><th>Measure</th><th>Target</th><th>Amber</th><th>Red</th></tr></thead>
           <tbody>
-            <tr><td>Cookies sold per day</td><td class="t g">400+</td><td class="t w">250–399</td><td class="t r">under 230 (break-even)</td></tr>
-            <tr><td>Ingredients and packaging, % of sales</td><td class="t g">under 20%</td><td class="t w">20–25%</td><td class="t r">over 25%</td></tr>
-            <tr><td>Staff cost, % of sales</td><td class="t g">under 40%</td><td class="t w">40–50%</td><td class="t r">over 50%</td></tr>
+            <tr><td>Cookies sold per day</td><td class="t g">250+</td><td class="t w">170–249</td><td class="t r">under 170 (break-even)</td></tr>
+            <tr><td>Ingredients and packaging, % of sales</td><td class="t g">under 32%</td><td class="t w">32–36%</td><td class="t r">over 36%</td></tr>
+            <tr><td>Staff cost, % of sales</td><td class="t g">under 25%</td><td class="t w">25–30%</td><td class="t r">over 30%</td></tr>
             <tr><td>Waste, % of cookies baked</td><td class="t g">under 8%</td><td class="t w">8–12%</td><td class="t r">over 12%</td></tr>
-            <tr><td>Cash difference per day</td><td class="t g">0</td><td class="t w">small</td><td class="t r">any repeat</td></tr>
+            <tr><td>Cash and UPI difference per day</td><td class="t g">₹0</td><td class="t w">under ₹100</td><td class="t r">any repeat</td></tr>
             <tr><td>Checklists done on time</td><td class="t g">100%</td><td class="t w">90–99%</td><td class="t r">under 90%</td></tr>
             <tr><td>Google rating</td><td class="t g">4.6+</td><td class="t w">4.3–4.5</td><td class="t r">under 4.3</td></tr>
-            <tr><td>Returning customers (loyalty)</td><td class="t g">35%+</td><td class="t w">20–34%</td><td class="t r">under 20%</td></tr>
+            <tr><td>Repeat customers</td><td class="t g">35%+</td><td class="t w">20–34%</td><td class="t r">under 20%</td></tr>
           </tbody>
         </table>
       </div>
@@ -268,36 +320,36 @@ flowchart LR
       <h2>Recipes and baking plan</h2>
       <p>Anyone trained for five days should bake a cookie you cannot tell apart from yours. That needs recipes by weight, not by cups, and a fixed plan for how much to bake each hour.</p>
       <h3>Recipe card format</h3>
-      <div class="recipe">CLASSIC CHOC CHIP             Batch: 48 cookies at 60 g dough each
+      <div class="recipe">CLASSIC CHOC CHIP             Batch: 80 cookies at 40 g dough each
 ─────────────────────────────────────────────────────────────
 Butter, unsalted, soft      680 g     Mix 3 min with sugars
 Brown sugar                 540 g
 White sugar                 270 g
 Eggs                        4 (200 g) Add one at a time
-Vanilla                     15 g
-Flour                       900 g     Mix on low until just combined
+Vanilla essence             15 g
+Maida                       900 g     Mix on low until just combined
 Baking soda                 10 g
 Salt                        12 g
-Chocolate chunks            720 g     Fold in by hand
+Chocolate chips             720 g     Fold in by hand
 ─────────────────────────────────────────────────────────────
-Scoop 60 g · Chill 24 h minimum · Bake 180 °C, 11 min
+Scoop 40 g · Chill 24 h minimum · Bake 180 °C, 9–10 min
 Done when: edges golden, centre still soft
-Photo of correct cookie: pinned above the oven</div>
-      <p class="muted" style="margin-top:8px">Make dough the day before and freeze scooped balls. Staff then only bake, which is faster and more consistent.</p>
+Photo of correct cookie: pinned above the oven
+Eggless version: separate card, separate tray, label "Eggless"</div>
+      <p class="muted" style="margin-top:8px">Make dough the day before and freeze scooped balls. Staff then only bake, which is faster and more consistent. Many customers in Siliguri ask for eggless, so keep an eggless recipe from day one and never bake it on the same tray without a clear label.</p>
 
       <h3>Hourly baking plan</h3>
-      <p>Start with these numbers. Each week the manager adjusts them using the till's sales-by-hour report, aiming for waste under 8%.</p>
+      <p>Start with these numbers. Each week the manager adjusts them using the billing app's sales-by-hour report, aiming for waste under 8%.</p>
       <div class="tablebox">
         <table>
           <thead><tr><th>Bake at</th><th>Cookies</th><th>Reason</th></tr></thead>
           <tbody>
-            <tr><td class="t">7:40</td><td class="t">60</td><td>Full display for opening</td></tr>
-            <tr><td class="t">10:30</td><td class="t">60</td><td>Late morning</td></tr>
-            <tr><td class="t">12:00</td><td class="t">80</td><td>Lunch rush</td></tr>
-            <tr><td class="t">14:00</td><td class="t">60</td><td>Afternoon</td></tr>
-            <tr><td class="t">15:30</td><td class="t">80</td><td>School and office pick-up</td></tr>
-            <tr><td class="t">16:30</td><td class="t">60</td><td>Early evening, last full bake</td></tr>
-            <tr><td class="t">After 17:00</td><td class="t">12 at a time</td><td>Only when the display runs low</td></tr>
+            <tr><td class="t">8:45</td><td class="t">50</td><td>Full display for opening</td></tr>
+            <tr><td class="t">11:00</td><td class="t">40</td><td>Late morning</td></tr>
+            <tr><td class="t">13:00</td><td class="t">40</td><td>Lunch</td></tr>
+            <tr><td class="t">15:30</td><td class="t">50</td><td>Schools and colleges finish</td></tr>
+            <tr><td class="t">18:00</td><td class="t">60</td><td>Evening shopping rush, the busiest time</td></tr>
+            <tr><td class="t">After 19:30</td><td class="t">12 at a time</td><td>Only when the display runs low</td></tr>
           </tbody>
         </table>
       </div>
@@ -305,37 +357,59 @@ Photo of correct cookie: pinned above the oven</div>
 
     <section id="controls">
       <h2>Stopping leaks</h2>
-      <p>When the owner is away, money leaks through cash, free cookies, missing stock and extra hours. Each of these checks takes no one's time day to day.</p>
+      <p>When the owner is away, money leaks through cash, payments to the wrong QR code, free cookies, missing stock and fake attendance. Each of these checks takes no one's time day to day.</p>
       <ol class="steps">
-        <li><b>Every sale goes through the till.</b> The display shows prices; the customer screen shows the total. A sign at the counter says customers get a free cookie if they are not offered a receipt, so customers check for you.</li>
-        <li><b>Each staff member has their own till login.</b> Refunds, voids and discounts carry a name.</li>
-        <li><b>Blind cash count.</b> Staff count the cash before the till tells them what it should be.</li>
-        <li><b>Weekly stock count of the five costliest items</b> (butter, chocolate, nuts, boxes, eggs). The till compares actual stock with what sales say should be left.</li>
-        <li><b>Clock-in only at the shop,</b> by location or a tablet at the counter, so hours can't be padded.</li>
-        <li><b>Staff treats are logged</b> as waste with a reason. Allow a fixed amount per shift, so no one needs to hide it.</li>
-        <li><b>Camera on the till and the back door,</b> reviewed only when a number looks wrong.</li>
+        <li><b>Only one UPI QR in the shop,</b> the one printed on the bill by the billing app, with the UPI speaker next to it. Never a staff member's personal QR or a loose printed one.</li>
+        <li><b>Every sale is billed.</b> A sign at the counter says "No bill? Your cookie is free", so customers check for you.</li>
+        <li><b>Each staff member has their own billing login.</b> Cancellations and discounts carry a name.</li>
+        <li><b>Blind cash count.</b> Staff count the cash before the app shows what it should be.</li>
+        <li><b>Weekly stock count of the five costliest items:</b> butter, chocolate, eggs, boxes and nuts. The app compares actual stock with what sales say should be left.</li>
+        <li><b>Selfie attendance at the shop location only,</b> so no one is marked present from home.</li>
+        <li><b>Staff eat free within a limit,</b> for example two cookies a shift, logged as waste. No one needs to hide it.</li>
+        <li><b>CCTV on the counter and the back door,</b> checked only when a number looks wrong.</li>
       </ol>
     </section>
 
     <section id="people">
       <h2>Hiring and training</h2>
       <h3>Hiring</h3>
-      <p>Hire for reliability and friendliness; baking can be taught. Keep the job post, interview questions and a paid two-hour trial shift the same every time, so the manager can run hiring without you.</p>
+      <p>Hire for reliability and friendliness; baking can be taught. In Siliguri, staff who speak at least two of Bengali, Hindi and Nepali serve far more customers well. Keep the job post, interview questions and a paid two-hour trial shift the same every time, so the manager can hire without you.</p>
       <h3>Five-day training plan</h3>
       <div class="tablebox">
         <table>
           <thead><tr><th>Day</th><th>Learn</th><th>Signed off when</th></tr></thead>
           <tbody>
-            <tr><td class="t">1</td><td>Food safety, hand washing, allergens, cleaning checklist</td><td>Passes a short quiz</td></tr>
-            <tr><td class="t">2</td><td>Till: sales, boxes, loyalty, cash count</td><td>Runs the till for 2 hours with no errors</td></tr>
+            <tr><td class="t">1</td><td>Hygiene, hand washing, allergens (nuts, egg, gluten), cleaning checklist</td><td>Passes a short quiz</td></tr>
+            <tr><td class="t">2</td><td>Billing app, UPI QR and speaker, gift boxes, cash count</td><td>Bills for 2 hours with no errors</td></tr>
             <tr><td class="t">3</td><td>Baking from frozen dough, oven timing, display</td><td>Two batches match the photo</td></tr>
             <tr><td class="t">4</td><td>Opening checklist and baking plan</td><td>Opens the shop with the manager watching</td></tr>
-            <tr><td class="t">5</td><td>Closing, waste logging, handling complaints</td><td>Closes alone; cash difference is zero</td></tr>
+            <tr><td class="t">5</td><td>Closing, waste logging, handling complaints</td><td>Closes alone; cash and UPI match</td></tr>
           </tbody>
         </table>
       </div>
       <h3>Manager pay</h3>
-      <p>Pay a base salary plus a monthly bonus of 10% of profit above break-even. This rewards selling more and wasting less. Paying on sales alone would reward overstaffing and discounting.</p>
+      <p>Pay a fixed salary plus a monthly bonus of 10% of profit above break-even. This rewards selling more and wasting less. A bonus on sales alone would reward overstaffing and heavy discounts. Pay staff their Puja bonus before Durga Puja; it is expected in West Bengal, and it is already counted in the Profit Planner.</p>
+    </section>
+
+    <section id="local">
+      <h2>Siliguri year</h2>
+      <p>Siliguri is the gateway to Darjeeling, Sikkim and the Dooars, so sales follow the tourist and festival calendar. Plan stock, staff leave and offers around it.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>When</th><th>What changes</th><th>What to do</th></tr></thead>
+          <tbody>
+            <tr><td class="t">Apr – Jun</td><td>Summer tourist season to the hills</td><td>Gift boxes for travellers; bake more; no staff leave</td></tr>
+            <tr><td class="t">Jun – Sep</td><td>Heavy monsoon rain, humidity, more power cuts</td><td>Push delivery apps and WhatsApp orders; keep cookies in airtight jars; check the inverter weekly</td></tr>
+            <tr><td class="t">Oct – Nov</td><td>Durga Puja, Lakshmi Puja, Kali Puja, Diwali, Bhai Phota</td><td>Pre-order gift hampers from September; add a temporary staff member; pay Puja bonus early</td></tr>
+            <tr><td class="t">Dec – Jan</td><td>Christmas, New Year, winter tourists and picnic season</td><td>Seasonal cookie; party packs; open late on 24 and 31 December</td></tr>
+            <tr><td class="t">Jan – Feb</td><td>Saraswati Puja, Valentine's Day, school events</td><td>Bulk orders for schools and offices; heart-shaped boxes</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Choosing the shop</h3>
+      <p>Look for walking crowds, not only traffic. Busy stretches include Sevoke Road, Hill Cart Road, Bidhan Road near Bidhan Market, and the area around City Centre at Matigara. Near colleges and bus or rail terminals brings students and travellers. Count people walking past for an hour on a weekday evening and on a Sunday before you sign.</p>
+      <h3>Suppliers</h3>
+      <p>Buy flour, sugar and packaging in bulk from the Khalpara and Mahabirsthan wholesale markets or a bakery-supply distributor. Get butter from a dairy distributor on a weekly standing order. Keep two suppliers for butter and chocolate, the two items that most affect cost and taste.</p>
     </section>
 
     <section id="rhythm">
@@ -345,13 +419,15 @@ Photo of correct cookie: pinned above the oven</div>
           <thead><tr><th>When</th><th>Task</th><th>Who</th><th>Time</th></tr></thead>
           <tbody>
             <tr><td class="t">Daily</td><td>Read the nightly report. Reply only if something is red.</td><td>Owner</td><td class="t">5 min</td></tr>
-            <tr><td class="t">Monday</td><td>Weekly review call: numbers from section 6, one problem, one fix</td><td>Owner, manager</td><td class="t">45 min</td></tr>
-            <tr><td class="t">Tuesday</td><td>Stock count of top five items; adjust reorder levels</td><td>Manager</td><td class="t">30 min</td></tr>
-            <tr><td class="t">Wednesday</td><td>Publish next week's rota, checked against sales forecast</td><td>Manager</td><td class="t">30 min</td></tr>
-            <tr><td class="t">Thursday</td><td>Adjust baking plan from sales-by-hour and waste</td><td>Manager</td><td class="t">20 min</td></tr>
-            <tr><td class="t">Monthly</td><td>Profit and loss review; compare with the Profit Planner; check prices against ingredient costs</td><td>Owner</td><td class="t">1 hr</td></tr>
-            <tr><td class="t">Monthly</td><td>Surprise visit or a friend making a "mystery shopper" visit</td><td>Owner</td><td class="t">30 min</td></tr>
-            <tr><td class="t">Quarterly</td><td>New seasonal cookie; deep clean; oven service; supplier price check</td><td>Manager</td><td class="t">1 day</td></tr>
+            <tr><td class="t">Monday</td><td>Weekly review call: the numbers above, one problem, one fix</td><td>Owner, manager</td><td class="t">45 min</td></tr>
+            <tr><td class="t">Tuesday</td><td>Stock count of the five costliest items; adjust reorder levels</td><td>Manager</td><td class="t">30 min</td></tr>
+            <tr><td class="t">Wednesday</td><td>Make next week's rota and weekly offs, checked against expected sales</td><td>Manager</td><td class="t">30 min</td></tr>
+            <tr><td class="t">Thursday</td><td>Adjust baking plan from sales by hour and waste</td><td>Manager</td><td class="t">20 min</td></tr>
+            <tr><td class="t">Monthly</td><td>Profit and loss; compare with the Profit Planner; check prices against butter and chocolate costs</td><td>Owner</td><td class="t">1 hr</td></tr>
+            <tr><td class="t">Monthly</td><td>GST and Professional Tax filings</td><td>CA</td><td class="t">—</td></tr>
+            <tr><td class="t">Monthly</td><td>Surprise visit, or a friend visiting as a customer</td><td>Owner</td><td class="t">30 min</td></tr>
+            <tr><td class="t">Quarterly</td><td>New seasonal cookie; deep clean; oven and inverter service; supplier price check</td><td>Manager</td><td class="t">1 day</td></tr>
+            <tr><td class="t">Yearly</td><td>Renew trade licence; renew FSSAI licence when due</td><td>Manager, CA</td><td class="t">—</td></tr>
           </tbody>
         </table>
       </div>
@@ -361,10 +437,10 @@ Photo of correct cookie: pinned above the oven</div>
       <h2>90 days to step back</h2>
       <p>You cannot be absent on day one. Build the system while you are still in the shop, then hand it over in stages.</p>
       <div class="phases">
-        <div class="phase"><div class="when">Before opening</div><div>Set up the till, stock items and recipes in it. Write recipe cards and checklists. Hire the manager first and have them help hire staff.<ul><li>Done when: a test day runs with every sale, clock-in and checklist recorded.</li></ul></div></div>
+        <div class="phase"><div class="when">Before opening</div><div>Get the licences. Set up the billing app, stock items and recipes in it. Write recipe cards and checklists. Hire the manager first and have them help hire staff.<ul><li>Done when: a trial day runs with every bill, attendance and checklist recorded.</li></ul></div></div>
         <div class="phase"><div class="when">Days 1–30</div><div>You work in the shop alongside the manager. Fix every step that confuses staff. Turn on the nightly report and alerts.<ul><li>Done when: the manager runs a full day while you only watch.</li></ul></div></div>
-        <div class="phase"><div class="when">Days 31–60</div><div>You are in the shop two days a week. The manager writes the rota, approves orders and trains new staff. Set the hourly baking plan from real sales.<ul><li>Done when: two weeks with no red numbers and no calls to you.</li></ul></div></div>
-        <div class="phase"><div class="when">Days 61–90</div><div>You stop scheduled visits. Run only the nightly report, the Monday call and the monthly review. Start the manager bonus.<ul><li>Done when: a month closes at or above your target profit without you in the shop.</li></ul></div></div>
+        <div class="phase"><div class="when">Days 31–60</div><div>You are in the shop two days a week. The manager makes the rota, approves orders and trains new staff. Set the hourly baking plan from real sales.<ul><li>Done when: two weeks with no red numbers and no calls to you.</li></ul></div></div>
+        <div class="phase"><div class="when">Days 61–90</div><div>You stop scheduled visits. Keep only the nightly report, the Monday call and the monthly review. Start the manager bonus.<ul><li>Done when: a month closes at or above your target profit without you in the shop.</li></ul></div></div>
       </div>
     </section>
   </main>
