@@ -116,49 +116,51 @@ ol.steps { padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
       <div class="eyebrow">Operations playbook · Siliguri, West Bengal</div>
       <h1>Cookie Shop Operations Playbook</h1>
       <p class="lede">How a walk-in cookie store in Siliguri runs every day without the owner in it. Software records every bill, every UPI payment, every stock movement and every checklist. Staff follow written steps. You read one report a night on WhatsApp and spend about two hours a week on the business.</p>
-      <p class="muted" style="margin-top:12px">Targets match the Siliguri figures in the <a href="https://claude.ai/artifact/UzKFWwoXXGEkMxX7dPm94Z">Cookie Shop Profit Planner</a>: 250 cookies of 100 g a day at ₹60, costing ₹30 each to make, with break-even near 227 a day. Costs, rents and rules here are 2026 estimates; confirm them locally and with a CA before you sign anything.</p>
+      <p class="muted" style="margin-top:12px">Targets match the Siliguri figures in the <a href="https://claude.ai/artifact/UzKFWwoXXGEkMxX7dPm94Z">Cookie Shop Profit Planner</a>: 250 cookies of 100 g a day at ₹60, costing ₹30 each to make, with ₹20,000 a month for all staff and break-even near 138 a day. Costs, rents and rules here are 2026 estimates; confirm them locally and with a CA before you sign anything.</p>
     </header>
 
     <section id="roles">
       <h2>Who does what</h2>
-      <p>The shop has three layers. Each one only makes the decisions that belong to it.</p>
+      <p>Two paid staff run the shop, with a total staff budget of ₹20,000 a month. The senior one is the shop lead and does the shop lead's jobs. With no separate shop lead, you handle a few more decisions yourself, about 4 hours a week.</p>
       <div class="roles">
         <div class="role">
           <h3>Owner (you)</h3>
-          <div class="hrs">about 2 hrs / week</div>
+          <div class="hrs">about 4 hrs / week</div>
           <ul>
             <li>Read the nightly WhatsApp report (5 minutes)</li>
-            <li>Weekly review call with the manager</li>
+            <li>Weekly review call with the shop lead</li>
             <li>Approve spending above ₹5,000</li>
             <li>Set prices, the menu and targets</li>
-            <li>Hire or fire the manager</li>
+            <li>Arrange cover for weekly offs and leave</li>
+            <li>Hire staff, with the shop lead</li>
           </ul>
         </div>
         <div class="role">
-          <h3>Store manager</h3>
-          <div class="hrs">full time · about ₹25,000 / month</div>
+          <h3>Shop lead</h3>
+          <div class="hrs">morning shift · 8:30 – 17:30</div>
           <ul>
-            <li>Writes the shift rota and weekly offs</li>
+            <li>Opens the shop and does the big bakes</li>
             <li>Approves supplier orders up to ₹5,000</li>
-            <li>Trains staff and checks their work</li>
+            <li>Trains the assistant and checks their work</li>
             <li>Handles complaints and refunds</li>
             <li>Owns the numbers in section 8</li>
           </ul>
         </div>
         <div class="role">
-          <h3>Shop staff</h3>
-          <div class="hrs">4 people · about ₹12,000 / month</div>
+          <h3>Shop assistant</h3>
+          <div class="hrs">evening shift · 12:30 – 22:00</div>
           <ul>
-            <li>Two shifts a day, two people each</li>
-            <li>Bake to the hourly plan</li>
-            <li>Serve customers and bill every sale</li>
-            <li>Complete opening and closing checklists</li>
-            <li>Log waste at the end of each day</li>
+            <li>Covers lunch and the evening rush</li>
+            <li>Bakes small batches after 18:00</li>
+            <li>Serves customers and bills every sale</li>
+            <li>Closes the shop and does the closing checklist</li>
+            <li>Logs waste at the end of each day</li>
           </ul>
         </div>
       </div>
       <div class="callout">
-        <p><b>Spending limit.</b> The manager can spend up to ₹5,000 per order without asking. Anything larger comes to you on WhatsApp for a yes or no. This one rule removes most of the day-to-day calls to the owner.</p>
+        <p><b>Two things to fix before you open.</b> First, the West Bengal minimum wage for unskilled shop staff in Siliguri is ₹10,558 a month from July 2026, so two staff legally cost at least ₹21,116 a month, and Puja bonus comes on top. Second, with only two people, nobody covers a weekly off, sickness or Puja leave. Either close one day a week, hire a part-timer for that day, or cover it yourself.</p>
+        <p><b>Spending limit.</b> The shop lead can spend up to ₹5,000 per order without asking. Anything larger comes to you on WhatsApp for a yes or no.</p>
       </div>
     </section>
 
@@ -175,7 +177,7 @@ ol.steps { padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
             <tr><td>Shops and Establishments</td><td>Registers you as an employer; sets working hours and weekly offs for staff.</td><td>West Bengal Labour Department</td></tr>
             <tr><td>Professional Tax</td><td>Employer enrolment, and monthly deduction from salaries above the exempt limit.</td><td>West Bengal Profession Tax portal</td></tr>
             <tr><td>Udyam registration</td><td>Free. Makes you eligible for small-business loans and schemes.</td><td>udyamregistration.gov.in</td></tr>
-            <tr><td>FoSTaC food safety training</td><td>FSSAI licence holders need a trained food safety supervisor. Send the manager on the one-day course.</td><td>FSSAI FoSTaC partners</td></tr>
+            <tr><td>FoSTaC food safety training</td><td>FSSAI licence holders need a trained food safety supervisor. Send the shop lead on the one-day course.</td><td>FSSAI FoSTaC partners</td></tr>
             <tr><td>Packaged-goods labels</td><td>Only if you sell sealed boxes: label with MRP, net weight, date, FSSAI number and ingredients.</td><td>Legal Metrology and FSSAI labelling rules</td></tr>
           </tbody>
         </table>
@@ -235,36 +237,36 @@ flowchart LR
   B --> P[UPI QR on bill]
   B --> C[Stock goes down by recipe]
   C -->|below reorder level| D[Draft supplier order]
-  D --> E{Manager approves}
+  D --> E{Shop lead approves}
   E --> F[Supplier delivers]
   F --> C
   B --> G[Nightly WhatsApp report to owner]
   B --> H[Accounting and GST]
   I[Selfie attendance] --> J[Salary sheet]
-  K[Checklists and sensors] -->|missed or out of range| L[Alert to manager]
+  K[Checklists and sensors] -->|missed or out of range| L[Alert to shop lead]
 </pre>
       </div>
     </section>
 
     <section id="day">
       <h2>A day in the shop</h2>
-      <p>For a shop open 10:00 to 21:30, seven days a week. The morning shift works 8:30 to 17:30 and the evening shift 12:30 to 22:00, so both are in the shop over lunch and the evening rush.</p>
+      <p>For a shop open 10:00 to 21:30, seven days a week. The shop lead works 8:30 to 17:30 and the assistant 12:30 to 22:00, so both are in the shop over lunch and the afternoon. After 17:30 the assistant runs the shop alone.</p>
       <div class="tablebox">
         <table>
           <thead><tr><th>Time</th><th>What happens</th><th>Who</th><th>Recorded in</th></tr></thead>
           <tbody>
-            <tr><td class="t">8:30</td><td>Morning shift marks attendance. Photo of the fridge thermometer. Ovens on.</td><td><span class="tag people">Staff</span></td><td>Attendance app, checklist</td></tr>
+            <tr><td class="t">8:30</td><td>Shop lead marks attendance. Photo of the fridge thermometer. Ovens on.</td><td><span class="tag people">Staff</span></td><td>Attendance app, checklist</td></tr>
             <tr><td class="t">8:45</td><td>Bake the opening batch from frozen dough. Set up the display.</td><td><span class="tag people">Staff</span></td><td>Opening checklist</td></tr>
-            <tr><td class="t">9:50</td><td>Count the cash float. Checklist must be done before billing opens.</td><td><span class="tag people">Shift lead</span></td><td>Billing app</td></tr>
-            <tr><td class="t">10:00</td><td>If the opening checklist is not complete, the manager gets a WhatsApp alert.</td><td><span class="tag auto">Automatic</span></td><td>Checklist app</td></tr>
-            <tr><td class="t">12:30</td><td>Evening shift arrives. Morning shift takes lunch breaks in turn.</td><td><span class="tag people">Staff</span></td><td>Attendance app</td></tr>
-            <tr><td class="t">14:00</td><td>Midday check: if sales are 25% below the same weekday last month, the manager is told to post an offer on Instagram and WhatsApp.</td><td><span class="tag auto">Automatic</span></td><td>Billing report</td></tr>
-            <tr><td class="t">17:30</td><td>Morning shift hands over and leaves.</td><td><span class="tag people">Shift lead</span></td><td>Handover note</td></tr>
+            <tr><td class="t">9:50</td><td>Count the cash float. Checklist must be done before billing opens.</td><td><span class="tag people">Shop lead</span></td><td>Billing app</td></tr>
+            <tr><td class="t">10:00</td><td>If the opening checklist is not complete, the shop lead gets a WhatsApp alert.</td><td><span class="tag auto">Automatic</span></td><td>Checklist app</td></tr>
+            <tr><td class="t">12:30</td><td>Assistant arrives. Morning shift takes lunch breaks in turn.</td><td><span class="tag people">Staff</span></td><td>Attendance app</td></tr>
+            <tr><td class="t">14:00</td><td>Midday check: if sales are 25% below the same weekday last month, the shop lead is told to post an offer on Instagram and WhatsApp.</td><td><span class="tag auto">Automatic</span></td><td>Billing report</td></tr>
+            <tr><td class="t">17:30</td><td>Shop lead hands over and leaves.</td><td><span class="tag people">Shop lead</span></td><td>Handover note</td></tr>
             <tr><td class="t">18:00</td><td>Last big bake for the evening rush. After this, bake 12 at a time when the display runs low.</td><td><span class="tag people">Staff</span></td><td>Baking plan sheet</td></tr>
-            <tr><td class="t">21:30</td><td>Close billing. Count cash; check UPI total in the bank app against the billing app.</td><td><span class="tag people">Shift lead</span></td><td>Billing app</td></tr>
+            <tr><td class="t">21:30</td><td>Close billing. Count cash; check UPI total in the bank app against the billing app.</td><td><span class="tag people">Assistant</span></td><td>Billing app</td></tr>
             <tr><td class="t">21:40</td><td>Log unsold and broken cookies as waste. Day-old cookies go to a half-price box the next morning.</td><td><span class="tag people">Staff</span></td><td>Billing app (waste)</td></tr>
             <tr><td class="t">22:00</td><td>Cleaning and closing checklist with photos. Mark attendance out.</td><td><span class="tag people">Staff</span></td><td>Checklist, attendance app</td></tr>
-            <tr><td class="t">22:30</td><td>Nightly report to owner and manager. Low stock turned into draft orders.</td><td><span class="tag auto">Automatic</span></td><td>Billing app</td></tr>
+            <tr><td class="t">22:30</td><td>Nightly report to owner and shop lead. Low stock turned into draft orders.</td><td><span class="tag auto">Automatic</span></td><td>Billing app</td></tr>
           </tbody>
         </table>
       </div>
@@ -272,23 +274,23 @@ flowchart LR
 
     <section id="automations">
       <h2>Automations</h2>
-      <p>Set these up once. Most billing and checklist apps have them as settings. Send all alerts to one WhatsApp group for the manager and you, so nothing gets lost in personal chats.</p>
+      <p>Set these up once. Most billing and checklist apps have them as settings. Send all alerts to one WhatsApp group for the shop lead and you, so nothing gets lost in personal chats.</p>
       <div class="tablebox">
         <table>
           <thead><tr><th>When</th><th>Then</th><th>Goes to</th></tr></thead>
           <tbody>
-            <tr><td class="rule"><span class="if">Daily 22:30</span></td><td>Send sales, cookies sold, average bill, cash vs UPI, waste and staff present</td><td>Owner, manager</td></tr>
-            <tr><td class="rule"><span class="if">Stock below reorder level</span></td><td>Create a draft order to the usual supplier</td><td>Manager approves</td></tr>
+            <tr><td class="rule"><span class="if">Daily 22:30</span></td><td>Send sales, cookies sold, average bill, cash vs UPI, waste and staff present</td><td>Owner, shop lead</td></tr>
+            <tr><td class="rule"><span class="if">Stock below reorder level</span></td><td>Create a draft order to the usual supplier</td><td>Shop lead approves</td></tr>
             <tr><td class="rule"><span class="if">Order above ₹5,000</span></td><td>Ask for approval before sending</td><td>Owner</td></tr>
-            <tr><td class="rule"><span class="if">Checklist not done by deadline</span></td><td>Reminder, then escalate after 30 minutes</td><td>Shift lead, then manager</td></tr>
-            <tr><td class="rule"><span class="if">Fridge above 5 °C for 20 min</span></td><td>Alert, usually a power cut; check the inverter</td><td>Manager</td></tr>
-            <tr><td class="rule"><span class="if">No attendance 10 min after shift start</span></td><td>Alert and ask other staff to cover</td><td>Manager, staff group</td></tr>
-            <tr><td class="rule"><span class="if">Staff cost above 20% of sales this month</span></td><td>Warn before the next rota is made</td><td>Manager</td></tr>
-            <tr><td class="rule"><span class="if">Cash or UPI short at closing</span></td><td>Flag the shift and the person who closed</td><td>Manager, owner</td></tr>
-            <tr><td class="rule"><span class="if">Bill cancelled or discounted</span></td><td>Log with the staff name; weekly summary</td><td>Manager, owner</td></tr>
-            <tr><td class="rule"><span class="if">Door opens after closing</span></td><td>CCTV clip to phone</td><td>Owner, manager</td></tr>
+            <tr><td class="rule"><span class="if">Checklist not done by deadline</span></td><td>Reminder, then escalate after 30 minutes</td><td>Person on shift, then owner</td></tr>
+            <tr><td class="rule"><span class="if">Fridge above 5 °C for 20 min</span></td><td>Alert, usually a power cut; check the inverter</td><td>Shop lead</td></tr>
+            <tr><td class="rule"><span class="if">No attendance 10 min after shift start</span></td><td>Alert and ask other staff to cover</td><td>Shop lead, staff group</td></tr>
+            <tr><td class="rule"><span class="if">Staff cost above ₹20,000 this month</span></td><td>Show overtime and extra cover hours</td><td>Shop lead</td></tr>
+            <tr><td class="rule"><span class="if">Cash or UPI short at closing</span></td><td>Flag the shift and the person who closed</td><td>Shop lead, owner</td></tr>
+            <tr><td class="rule"><span class="if">Bill cancelled or discounted</span></td><td>Log with the staff name; weekly summary</td><td>Shop lead, owner</td></tr>
+            <tr><td class="rule"><span class="if">Door opens after closing</span></td><td>CCTV clip to phone</td><td>Owner, shop lead</td></tr>
             <tr><td class="rule"><span class="if">Customer rates 4 or 5 stars</span></td><td>Ask for a Google review</td><td>Customer</td></tr>
-            <tr><td class="rule"><span class="if">Customer rates 1 to 3 stars</span></td><td>Send privately to the manager to call back within 24 hours</td><td>Manager</td></tr>
+            <tr><td class="rule"><span class="if">Customer rates 1 to 3 stars</span></td><td>Send privately to the shop lead to call back within 24 hours</td><td>Shop lead</td></tr>
             <tr><td class="rule"><span class="if">Regular customer away 30 days</span></td><td>WhatsApp a free-cookie offer</td><td>Customer</td></tr>
             <tr><td class="rule"><span class="if">1st of each month</span></td><td>Profit and loss, and GST figures for the CA</td><td>Owner, CA</td></tr>
           </tbody>
@@ -298,14 +300,14 @@ flowchart LR
 
     <section id="kpis">
       <h2>Numbers to watch</h2>
-      <p>The nightly report and the weekly review use these. Green means leave it alone. Amber means the manager explains it at the weekly review. Red means the manager acts that day.</p>
+      <p>The nightly report and the weekly review use these. Green means leave it alone. Amber means the shop lead explains it at the weekly review. Red means the shop lead acts that day.</p>
       <div class="tablebox">
         <table>
           <thead><tr><th>Measure</th><th>Target</th><th>Amber</th><th>Red</th></tr></thead>
           <tbody>
-            <tr><td>Cookies sold per day</td><td class="t g">250+</td><td class="t w">227–249</td><td class="t r">under 227 (break-even)</td></tr>
+            <tr><td>Cookies sold per day</td><td class="t g">250+</td><td class="t w">138–249</td><td class="t r">under 138 (break-even)</td></tr>
             <tr><td>Ingredients and packaging per cookie</td><td class="t g">₹30 or less</td><td class="t w">₹31–33</td><td class="t r">over ₹33</td></tr>
-            <tr><td>Staff cost, % of sales</td><td class="t g">under 20%</td><td class="t w">20–25%</td><td class="t r">over 25%</td></tr>
+            <tr><td>Staff cost per month</td><td class="t g">₹20,000</td><td class="t w">up to ₹23,000</td><td class="t r">over ₹23,000</td></tr>
             <tr><td>Waste, % of cookies baked</td><td class="t g">under 8%</td><td class="t w">8–12%</td><td class="t r">over 12%</td></tr>
             <tr><td>Cash and UPI difference per day</td><td class="t g">₹0</td><td class="t w">under ₹100</td><td class="t r">any repeat</td></tr>
             <tr><td>Checklists done on time</td><td class="t g">100%</td><td class="t w">90–99%</td><td class="t r">under 90%</td></tr>
@@ -340,7 +342,7 @@ Eggless version: separate card, separate tray, label "Eggless"</div>
       <p class="muted" style="margin-top:8px">Make dough the day before and freeze scooped balls. Staff then only bake, which is faster and more consistent. Many customers in Siliguri ask for eggless, so keep an eggless recipe from day one and never bake it on the same tray without a clear label.</p>
 
       <h3>Hourly baking plan</h3>
-      <p>Start with these numbers. Each week the manager adjusts them using the billing app's sales-by-hour report, aiming for waste under 8%.</p>
+      <p>Start with these numbers. Each week the shop lead adjusts them using the billing app's sales-by-hour report, aiming for waste under 8%.</p>
       <div class="tablebox">
         <table>
           <thead><tr><th>Bake at</th><th>Cookies</th><th>Reason</th></tr></thead>
@@ -374,7 +376,7 @@ Eggless version: separate card, separate tray, label "Eggless"</div>
     <section id="people">
       <h2>Hiring and training</h2>
       <h3>Hiring</h3>
-      <p>Hire for reliability and friendliness; baking can be taught. In Siliguri, staff who speak at least two of Bengali, Hindi and Nepali serve far more customers well. Keep the job post, interview questions and a paid two-hour trial shift the same every time, so the manager can hire without you.</p>
+      <p>Hire for reliability and friendliness; baking can be taught. In Siliguri, staff who speak at least two of Bengali, Hindi and Nepali serve far more customers well. Keep the job post, interview questions and a paid two-hour trial shift the same every time, so the shop lead can hire without you.</p>
       <h3>Five-day training plan</h3>
       <div class="tablebox">
         <table>
@@ -383,13 +385,13 @@ Eggless version: separate card, separate tray, label "Eggless"</div>
             <tr><td class="t">1</td><td>Hygiene, hand washing, allergens (nuts, egg, gluten), cleaning checklist</td><td>Passes a short quiz</td></tr>
             <tr><td class="t">2</td><td>Billing app, UPI QR and speaker, gift boxes, cash count</td><td>Bills for 2 hours with no errors</td></tr>
             <tr><td class="t">3</td><td>Baking from frozen dough, oven timing, display</td><td>Two batches match the photo</td></tr>
-            <tr><td class="t">4</td><td>Opening checklist and baking plan</td><td>Opens the shop with the manager watching</td></tr>
+            <tr><td class="t">4</td><td>Opening checklist and baking plan</td><td>Opens the shop with the shop lead watching</td></tr>
             <tr><td class="t">5</td><td>Closing, waste logging, handling complaints</td><td>Closes alone; cash and UPI match</td></tr>
           </tbody>
         </table>
       </div>
-      <h3>Manager pay</h3>
-      <p>Pay a fixed salary plus a monthly bonus of 10% of profit above break-even. This rewards selling more and wasting less. A bonus on sales alone would reward overstaffing and heavy discounts. Pay staff their Puja bonus before Durga Puja; it is expected in West Bengal, and it is already counted in the Profit Planner.</p>
+      <h3>Shop lead pay</h3>
+      <p>Pay the shop lead a fixed salary plus a monthly bonus of 10% of profit above break-even. This rewards selling more and wasting less. A bonus on sales alone would reward overstaffing and heavy discounts. Pay staff their Puja bonus before Durga Puja; it is expected in West Bengal, and it is already counted in the Profit Planner.</p>
     </section>
 
     <section id="local">
@@ -420,15 +422,15 @@ Eggless version: separate card, separate tray, label "Eggless"</div>
           <thead><tr><th>When</th><th>Task</th><th>Who</th><th>Time</th></tr></thead>
           <tbody>
             <tr><td class="t">Daily</td><td>Read the nightly report. Reply only if something is red.</td><td>Owner</td><td class="t">5 min</td></tr>
-            <tr><td class="t">Monday</td><td>Weekly review call: the numbers above, one problem, one fix</td><td>Owner, manager</td><td class="t">45 min</td></tr>
-            <tr><td class="t">Tuesday</td><td>Stock count of the five costliest items; adjust reorder levels</td><td>Manager</td><td class="t">30 min</td></tr>
-            <tr><td class="t">Wednesday</td><td>Make next week's rota and weekly offs, checked against expected sales</td><td>Manager</td><td class="t">30 min</td></tr>
-            <tr><td class="t">Thursday</td><td>Adjust baking plan from sales by hour and waste</td><td>Manager</td><td class="t">20 min</td></tr>
+            <tr><td class="t">Monday</td><td>Weekly review call: the numbers above, one problem, one fix</td><td>Owner, shop lead</td><td class="t">45 min</td></tr>
+            <tr><td class="t">Tuesday</td><td>Stock count of the five costliest items; adjust reorder levels</td><td>Shop lead</td><td class="t">30 min</td></tr>
+            <tr><td class="t">Wednesday</td><td>Agree next week's shifts and who covers the weekly off</td><td>Owner, shop lead</td><td class="t">30 min</td></tr>
+            <tr><td class="t">Thursday</td><td>Adjust baking plan from sales by hour and waste</td><td>Shop lead</td><td class="t">20 min</td></tr>
             <tr><td class="t">Monthly</td><td>Profit and loss; compare with the Profit Planner; check prices against butter and chocolate costs</td><td>Owner</td><td class="t">1 hr</td></tr>
             <tr><td class="t">Monthly</td><td>GST and Professional Tax filings</td><td>CA</td><td class="t">—</td></tr>
             <tr><td class="t">Monthly</td><td>Surprise visit, or a friend visiting as a customer</td><td>Owner</td><td class="t">30 min</td></tr>
-            <tr><td class="t">Quarterly</td><td>New seasonal cookie; deep clean; oven and inverter service; supplier price check</td><td>Manager</td><td class="t">1 day</td></tr>
-            <tr><td class="t">Yearly</td><td>Renew trade licence; renew FSSAI licence when due</td><td>Manager, CA</td><td class="t">—</td></tr>
+            <tr><td class="t">Quarterly</td><td>New seasonal cookie; deep clean; oven and inverter service; supplier price check</td><td>Shop lead</td><td class="t">1 day</td></tr>
+            <tr><td class="t">Yearly</td><td>Renew trade licence; renew FSSAI licence when due</td><td>Shop lead, CA</td><td class="t">—</td></tr>
           </tbody>
         </table>
       </div>
@@ -438,10 +440,10 @@ Eggless version: separate card, separate tray, label "Eggless"</div>
       <h2>90 days to step back</h2>
       <p>You cannot be absent on day one. Build the system while you are still in the shop, then hand it over in stages.</p>
       <div class="phases">
-        <div class="phase"><div class="when">Before opening</div><div>Get the licences. Set up the billing app, stock items and recipes in it. Write recipe cards and checklists. Hire the manager first and have them help hire staff.<ul><li>Done when: a trial day runs with every bill, attendance and checklist recorded.</li></ul></div></div>
-        <div class="phase"><div class="when">Days 1–30</div><div>You work in the shop alongside the manager. Fix every step that confuses staff. Turn on the nightly report and alerts.<ul><li>Done when: the manager runs a full day while you only watch.</li></ul></div></div>
-        <div class="phase"><div class="when">Days 31–60</div><div>You are in the shop two days a week. The manager makes the rota, approves orders and trains new staff. Set the hourly baking plan from real sales.<ul><li>Done when: two weeks with no red numbers and no calls to you.</li></ul></div></div>
-        <div class="phase"><div class="when">Days 61–90</div><div>You stop scheduled visits. Keep only the nightly report, the Monday call and the monthly review. Start the manager bonus.<ul><li>Done when: a month closes at or above your target profit without you in the shop.</li></ul></div></div>
+        <div class="phase"><div class="when">Before opening</div><div>Get the licences. Set up the billing app, stock items and recipes in it. Write recipe cards and checklists. Hire the shop lead first and have them help hire the assistant.<ul><li>Done when: a trial day runs with every bill, attendance and checklist recorded.</li></ul></div></div>
+        <div class="phase"><div class="when">Days 1–30</div><div>You work in the shop alongside the shop lead. Fix every step that confuses staff. Turn on the nightly report and alerts.<ul><li>Done when: the shop lead runs a full day while you only watch.</li></ul></div></div>
+        <div class="phase"><div class="when">Days 31–60</div><div>You are in the shop two days a week. The shop lead makes the rota, approves orders and trains new staff. Set the hourly baking plan from real sales.<ul><li>Done when: two weeks with no red numbers and no calls to you.</li></ul></div></div>
+        <div class="phase"><div class="when">Days 61–90</div><div>You stop scheduled visits. Keep only the nightly report, the Monday call and the monthly review. Start the shop lead bonus.<ul><li>Done when: a month closes at or above your target profit without you in the shop.</li></ul></div></div>
       </div>
     </section>
   </main>
