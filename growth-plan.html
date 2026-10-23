@@ -1,0 +1,346 @@
+<title>Cookie Shop Growth Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: single reading column with a sticky section index on wide screens; tables scroll inside their own boxes. */
+:root {
+  --bg: #fbf8f6;
+  --panel: #ffffff;
+  --fg: #2a1d17;
+  --muted: #7a6a62;
+  --line: #eadfd8;
+  --accent: #6b3a1f;
+  --accent-soft: #f3e6dc;
+  --butter: #e9b949;
+  --good: #2f7d4f;
+  --warn: #a86a00;
+  --bad: #b3372a;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1a1411; --panel: #241c18; --fg: #f3e9e3; --muted: #b3a197; --line: #3a2e28;
+    --accent: #e0a47a; --accent-soft: #3a2a20; --butter: #e9c060; --good: #6cc48f; --warn: #e6b04f; --bad: #f08576;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1a1411; --panel: #241c18; --fg: #f3e9e3; --muted: #b3a197; --line: #3a2e28;
+  --accent: #e0a47a; --accent-soft: #3a2a20; --butter: #e9c060; --good: #6cc48f; --warn: #e6b04f; --bad: #f08576;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 40px 16px 80px; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 48px; }
+@media (max-width: 860px) { .wrap { grid-template-columns: 1fr; gap: 24px; } nav.toc { position: static; } }
+nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; font-size: 14px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; counter-reset: s; }
+nav.toc li { counter-increment: s; }
+nav.toc a { color: var(--muted); text-decoration: none; display: flex; gap: 8px; padding: 2px 0; }
+nav.toc a::before { content: counter(s); font-family: var(--mono); font-size: 12px; color: var(--accent); width: 16px; }
+nav.toc a:hover, nav.toc a:focus-visible { color: var(--fg); }
+@media (max-width: 860px) { nav.toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+main { min-width: 0; }
+header { margin-bottom: 40px; }
+.eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); font-weight: 600; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(32px, 6vw, 48px); line-height: 1.05; margin: 6px 0 12px; text-wrap: balance; }
+.lede { font-size: 18px; max-width: 62ch; color: var(--fg); margin: 0; }
+section { padding-block: 32px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+h2 { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1.2; margin: 0 0 8px; text-wrap: balance; }
+h3 { font-family: var(--display); font-weight: 600; font-size: 18px; margin: 24px 0 8px; }
+p { max-width: 68ch; margin: 0 0 12px; }
+.muted { color: var(--muted); }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tablebox { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); margin: 12px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; background: var(--accent-soft); }
+td.t { font-family: var(--mono); font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.tag.auto { border-color: var(--good); color: var(--good); }
+.tag.people { border-color: var(--accent); color: var(--accent); }
+.roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+@media (max-width: 720px) { .roles { grid-template-columns: 1fr; } }
+.role { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+.role h3 { margin: 0 0 2px; }
+.role .hrs { font-family: var(--mono); font-size: 13px; color: var(--accent); margin-bottom: 8px; }
+.role ul { margin: 0; padding-left: 18px; font-size: 14px; display: grid; gap: 4px; }
+.stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+@media (max-width: 640px) { .stack { grid-template-columns: 1fr; } }
+.tool { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; background: var(--panel); }
+.tool b { display: block; font-weight: 600; }
+.tool .does { font-size: 14px; margin: 4px 0 6px; }
+.tool .ex { font-size: 13px; color: var(--muted); }
+.flow { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; overflow-x: auto; margin: 16px 0; }
+.rule { font-family: var(--mono); font-size: 13px; }
+.rule .if { color: var(--muted); }
+.kpi-state { font-weight: 600; font-size: 12px; }
+.g { color: var(--good); } .w { color: var(--warn); } .r { color: var(--bad); }
+ol.steps { padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
+.callout { background: var(--accent-soft); border-radius: 8px; padding: 16px; margin: 16px 0; max-width: 68ch; }
+.callout p:last-child { margin: 0; }
+.recipe { font-family: var(--mono); font-size: 13px; background: var(--panel); border: 1px dashed var(--line); border-radius: 8px; padding: 16px; overflow-x: auto; white-space: pre; line-height: 1.7; }
+.phases { display: grid; gap: 12px; margin-top: 12px; }
+.phase { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+@media (max-width: 560px) { .phase { grid-template-columns: 1fr; gap: 4px; } }
+.phase .when { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+.phase ul { margin: 4px 0 0; padding-left: 18px; font-size: 14px; }
+</style>
+<style>
+ul.sys { margin: 0; padding-left: 18px; display: grid; gap: 6px; max-width: 68ch; }
+ul.sys b, ol.steps b { font-weight: 600; }
+</style>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Sections">
+    <ol>
+      <li><a href="#model">The model</a></li>
+      <li><a href="#numbers">Numbers by stage</a></li>
+      <li><a href="#gates">When to open the next store</a></li>
+      <li><a href="#stages">The four stages</a></li>
+      <li><a href="#kitchen">The central kitchen</a></li>
+      <li><a href="#sites">Sites and formats</a></li>
+      <li><a href="#team">Team as you grow</a></li>
+      <li><a href="#kit">New-store kit</a></li>
+      <li><a href="#money">Paying for growth</a></li>
+      <li><a href="#kpis">Numbers to watch</a></li>
+      <li><a href="#risks">Risks</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header>
+      <div class="eyebrow">Growth plan · Siliguri, West Bengal</div>
+      <h1>Cookie Shop Growth Plan</h1>
+      <p class="lede">How one cookie store with a central dough kitchen, two salespeople and the owner grows into five stores and beyond. The kitchen makes all the dough. Stores only bake and sell. Each new store is cheaper to open and easier to run than the last.</p>
+      <p class="muted" style="margin-top:12px">Built on the figures in the <a href="https://claude.ai/artifact/UzKFWwoXXGEkMxX7dPm94Z">Cookie Shop Profit Planner</a> (100 g cookie, ₹30 cost, ₹60 average price, 5% GST, 8% waste) and the <a href="https://claude.ai/artifact/W9Pw5aJgr6FhfW6Yhd1Smx">Operations Playbook</a>. Rents, salaries and sales per store are estimates; replace them with real numbers as you go.</p>
+    </header>
+
+    <section id="model">
+      <h2>The model</h2>
+      <p>This is a hub-and-spoke business. One central kitchen (the hub) makes, scoops and freezes dough. Every store (a spoke) gets frozen dough each morning and bakes it fresh through the day. Customers get the same cookie at every store, and store staff need only one skill: baking from frozen and selling.</p>
+      <div class="flow">
+<pre class="mermaid">
+flowchart LR
+  S[Suppliers: butter, flour, chocolate] --> K[Central kitchen]
+  K -->|frozen dough, every morning| A[Store 1]
+  K --> B[Store 2]
+  K --> C[Mall kiosk]
+  K -->|baked in kitchen| D[Swiggy and Zomato orders]
+  K --> E[Cafes and hotels]
+  A --> R[Billing app: sales and stock]
+  B --> R
+  C --> R
+  R -->|tomorrow's dough order| K
+</pre>
+      </div>
+      <p>Why this grows well:</p>
+      <ol class="steps">
+        <li><b>Same taste everywhere.</b> One team mixes every batch, so a recipe can't drift from store to store.</li>
+        <li><b>Smaller, cheaper stores.</b> Without a mixer, wash area and dough storage, a store needs 100 to 200 sq ft, so a kiosk or a small counter works.</li>
+        <li><b>Easier hiring.</b> Salespeople learn to bake from frozen in a day. Only the kitchen needs a skilled baker.</li>
+        <li><b>Better buying.</b> One kitchen buys butter and chocolate for every store, so you get bulk prices. The plan assumes cost per cookie falls from ₹30 to ₹28 at three stores and ₹27 at five.</li>
+      </ol>
+      <div class="callout">
+        <p><b>At one store, the separate kitchen costs you money.</b> It adds about ₹32,500 a month in rent, power, delivery and equipment payments, so profit at 250 cookies a day drops from about ₹76,500 to about ₹57,500, and break-even rises from 138 to 166 cookies a day. It pays off from the second store. To keep that cost low at the start, you can rent a first store with a back room and use the back room as the kitchen until store 2 opens.</p>
+      </div>
+    </section>
+
+    <section id="numbers">
+      <h2>Numbers by stage</h2>
+      <p>Monthly figures, 30 days a month. New stores are assumed to sell a little less than store 1 at first.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th></th><th>1 store</th><th>2 stores</th><th>3 stores</th><th>5 stores</th></tr></thead>
+          <tbody>
+            <tr><td>Cookies sold per day, all stores</td><td class="t">250</td><td class="t">450</td><td class="t">670</td><td class="t">1,100</td></tr>
+            <tr><td>Cost to make one cookie</td><td class="t">₹30</td><td class="t">₹30</td><td class="t">₹28</td><td class="t">₹27</td></tr>
+            <tr><td>Left from each cookie after GST, cost, waste and fees</td><td class="t">₹22.73</td><td class="t">₹22.73</td><td class="t">₹24.91</td><td class="t">₹26.00</td></tr>
+            <tr><td>Store costs (₹80,500 each)</td><td class="t">₹80,500</td><td class="t">₹1,61,000</td><td class="t">₹2,41,500</td><td class="t">₹4,02,500</td></tr>
+            <tr><td>Central kitchen costs</td><td class="t">₹32,500</td><td class="t">₹52,500</td><td class="t">₹76,000</td><td class="t">₹1,19,500</td></tr>
+            <tr><td>Operations manager and accounts</td><td class="t">—</td><td class="t">—</td><td class="t">₹25,000</td><td class="t">₹35,000</td></tr>
+            <tr><td><b>Profit per month</b></td><td class="t"><b>₹57,500</b></td><td class="t"><b>₹93,400</b></td><td class="t"><b>₹1,58,200</b></td><td class="t"><b>₹3,00,800</b></td></tr>
+            <tr><td>Break-even, cookies per day across all stores</td><td class="t">166</td><td class="t">313</td><td class="t">458</td><td class="t">714</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>What is inside each line</h3>
+      <ul class="sys">
+        <li><b>Each store:</b> rent ₹35,000, power ₹8,000, two salespeople ₹20,000, billing app and CCTV ₹2,500, repairs ₹3,000, local marketing ₹5,000, fit-out loan ₹7,000.</li>
+        <li><b>Kitchen at 1 store:</b> rent ₹15,000, power and LPG ₹8,000, delivery ₹3,000, insurance and licence ₹1,500, equipment loan ₹5,000. You make the dough yourself, so no baker's salary.</li>
+        <li><b>Kitchen at 2 stores:</b> adds a baker at ₹15,000; delivery rises to ₹6,000.</li>
+        <li><b>Kitchen at 3 stores:</b> larger space ₹20,000, baker ₹15,000, helper ₹11,000, delivery ₹9,000.</li>
+        <li><b>Kitchen at 5 stores:</b> rent ₹25,000, two bakers ₹30,000, two helpers ₹22,000, delivery ₹15,000.</li>
+      </ul>
+      <p class="muted" style="margin-top:12px">Two salespeople at ₹10,000 each is below the West Bengal minimum wage of ₹10,558 a month for unskilled shop staff in city areas (from July 2026). Paying the legal minimum adds about ₹1,100 per store per month, plus Puja bonus.</p>
+    </section>
+
+    <section id="gates">
+      <h2>When to open the next store</h2>
+      <p>Opening too early is the most common way small chains fail: the new store drains cash and the owner's attention before the first one is stable. Open the next store only when every box below is true.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Check</th><th>Pass when</th></tr></thead>
+          <tbody>
+            <tr><td>Profit</td><td>Every existing store has been above its own break-even for 3 months in a row</td></tr>
+            <tr><td>Demand</td><td>Store 1 sells at least 220 cookies a day on average, weekdays included</td></tr>
+            <tr><td>Waste</td><td>Under 8% at every store for the last month</td></tr>
+            <tr><td>Systems</td><td>Recipes, checklists and the 5-day training plan are written and used without you</td></tr>
+            <tr><td>Kitchen</td><td>The kitchen has spare capacity for at least 250 more dough balls a day</td></tr>
+            <tr><td>People</td><td>Someone is trained to run the next store, and the kitchen runs a day without you</td></tr>
+            <tr><td>Cash</td><td>The setup cost plus 3 months of the new store's costs are in the bank, not borrowed from day-to-day cash</td></tr>
+            <tr><td>Site</td><td>Footfall counted on a weekday evening and a Sunday; at least 2 to 3 km from your nearest store</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="stages">
+      <h2>The four stages</h2>
+      <p>Each stage changes what you, the owner, spend your time on. Growth only works if you hand off the old job before taking on the new one.</p>
+      <div class="phases">
+        <div class="phase"><div class="when">Stage 1<br>Months 0–9</div><div><b>One store and the kitchen.</b> You make dough in the kitchen each morning and deliver it. Two salespeople run the store in two shifts.<ul><li>Your job: make dough, fix problems, write down every recipe and routine.</li><li>Build: the playbook systems, billing app with stock transfer from kitchen to store, nightly report.</li><li>Done when: 3 profitable months in a row and every gate above passes.</li></ul></div></div>
+        <div class="phase"><div class="when">Stage 2<br>Months 9–15</div><div><b>Hire a baker; open store 2.</b> Train a kitchen baker for one month before store 2 opens, so you leave the kitchen first. Store 2 goes in a different part of Siliguri with different crowds.<ul><li>Your job: plan dough orders, check quality, visit both stores, find sites.</li><li>Build: the new-store kit, store-by-store profit report.</li><li>Done when: store 2 is above its own break-even (about 118 cookies a day) for 3 months.</li></ul></div></div>
+        <div class="phase"><div class="when">Stage 3<br>Year 2</div><div><b>Stores 3 to 5 and delivery.</b> Hire an operations manager who visits every store each day. Add delivery-app orders baked in the kitchen, and supply cafés and hotels from spare kitchen capacity.<ul><li>Your job: money, suppliers, new sites, the operations manager.</li><li>Build: bulk buying contracts, a second freezer, a backup generator for the kitchen.</li><li>Done when: five stores, profit near ₹3 lakh a month, and a month passes with you in no store and not in the kitchen.</li></ul></div></div>
+        <div class="phase"><div class="when">Stage 4<br>Year 3 onward</div><div><b>Beyond Siliguri.</b> Nearby towns first: Jalpaiguri, then tourist towns such as Darjeeling, Kalimpong and Gangtok, where gift boxes sell well. Frozen dough travels a few hours in insulated boxes; for longer trips, use a refrigerated van or open a second kitchen.<ul><li>Your job: brand, new towns, partners.</li><li>Option: franchising, but only after 5 company stores make money and the brand name is a registered trademark.</li></ul></div></div>
+      </div>
+    </section>
+
+    <section id="kitchen">
+      <h2>The central kitchen</h2>
+      <h3>Setting it up</h3>
+      <ul class="sys">
+        <li><b>Space:</b> 300 to 500 sq ft on a back street, not the high street. Needs water, drainage, a wash area and a strong power supply.</li>
+        <li><b>Licences:</b> the kitchen needs its own FSSAI licence as a manufacturing unit, and its own trade licence. Each store also needs its own FSSAI licence or registration and trade licence. Confirm with your CA.</li>
+        <li><b>Equipment, about ₹3 to 4 lakh:</b> a 20-litre planetary mixer, two chest freezers, steel work tables, scales, scoops, food-grade crates, insulated boxes with ice packs, and an inverter or generator.</li>
+        <li><b>Capacity:</b> a 20-litre mixer handles very roughly 6 to 8 kg of cookie dough a batch, which is 60 to 80 cookies of 100 g. Measure your real output in the first month. Past about 800 dough balls a day, add a second shift or a 40-litre mixer.</li>
+      </ul>
+      <h3>The daily cycle</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>When</th><th>What happens</th><th>Recorded in</th></tr></thead>
+          <tbody>
+            <tr><td class="t">Day before, 21:00</td><td>Each store's dough order is worked out from its sales forecast minus what is left in its freezer</td><td>Billing app</td></tr>
+            <tr><td class="t">6:30</td><td>Frozen dough packed by store in labelled crates and sent in insulated boxes</td><td>Stock transfer out</td></tr>
+            <tr><td class="t">7:30</td><td>Store counts what arrived and accepts it; any shortfall is flagged</td><td>Stock transfer in</td></tr>
+            <tr><td class="t">8:00 – 14:00</td><td>Kitchen mixes, scoops and freezes for tomorrow. Each tray is labelled with flavour and batch date</td><td>Production log</td></tr>
+            <tr><td class="t">14:00 – 16:00</td><td>Bake delivery-app and café orders; clean; receive supplier deliveries</td><td>Billing app, checklist</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Two rules that stop most problems</h3>
+      <ol class="steps">
+        <li><b>Every dough ball is counted.</b> For each store, dough received must equal cookies sold plus waste plus dough left in the freezer. A gap of more than 1% is checked the same day.</li>
+        <li><b>Every store keeps 2 days of dough in its own freezer.</b> A power cut, a sick baker or a strike day at the kitchen then doesn't close any store. Use the oldest dough first, and set a use-by of 30 days from the batch date.</li>
+      </ol>
+    </section>
+
+    <section id="sites">
+      <h2>Sites and formats</h2>
+      <p>Not every outlet has to be a full shop. Mixing formats lets you reach more people for less rent.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Format</th><th>Size</th><th>Good for</th><th>Watch out for</th></tr></thead>
+          <tbody>
+            <tr><td>High-street store</td><td>150–250 sq ft</td><td>Store 1 and the brand; walk-in crowds on Sevoke Road or Hill Cart Road</td><td>Highest rent</td></tr>
+            <tr><td>Small counter</td><td>80–150 sq ft</td><td>Near colleges, hospitals, bus and rail terminals</td><td>Needs a strong single crowd</td></tr>
+            <tr><td>Mall kiosk</td><td>Kiosk space</td><td>Weekend and evening shoppers, for example at City Centre</td><td>Mall revenue share and fixed hours</td></tr>
+            <tr><td>Delivery only</td><td>From the kitchen</td><td>Swiggy and Zomato across the city, no extra rent</td><td>App commissions are much higher than the 3% fee in the plan, so price app orders higher</td></tr>
+            <tr><td>Cafés, hotels, corporate gifting</td><td>From the kitchen</td><td>Spare kitchen capacity; tourist hotels and homestays toward Darjeeling and Sikkim; Diwali gift boxes</td><td>Credit terms; get payment within 15 days</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Keep stores 2 to 3 km apart and aim each at a different crowd: shoppers, students, office workers or travellers. Two stores on the same street mostly split the same customers.</p>
+    </section>
+
+    <section id="team">
+      <h2>Team as you grow</h2>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Role</th><th>1 store</th><th>2 stores</th><th>3 stores</th><th>5 stores</th></tr></thead>
+          <tbody>
+            <tr><td>Salespeople (2 per store)</td><td class="t">2</td><td class="t">4</td><td class="t">6</td><td class="t">10</td></tr>
+            <tr><td>Kitchen baker</td><td>Owner</td><td class="t">1</td><td class="t">1</td><td class="t">2</td></tr>
+            <tr><td>Kitchen helper</td><td>—</td><td>—</td><td class="t">1</td><td class="t">2</td></tr>
+            <tr><td>Dough delivery</td><td>Owner</td><td>Part-time rider</td><td>Part-time rider</td><td>Full-time rider</td></tr>
+            <tr><td>Operations manager</td><td>—</td><td>—</td><td class="t">1</td><td class="t">1</td></tr>
+            <tr><td>Accounts</td><td>CA</td><td>CA</td><td>CA</td><td>Part-time clerk and CA</td></tr>
+            <tr><td>Owner's main job</td><td>Making dough</td><td>Planning and quality</td><td>Money and new sites</td><td>Brand and new towns</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Promote from inside where you can. A salesperson from store 1 who knows the routines makes a good shop lead for store 2, and a good shop lead can become the operations manager. Pay the operations manager a share of profit above break-even across all stores.</p>
+    </section>
+
+    <section id="kit">
+      <h2>New-store kit</h2>
+      <p>Write this once, after store 1, and reuse it for every store. Opening store 5 should feel like repeating a checklist, not starting over.</p>
+      <ol class="steps">
+        <li><b>Site checklist:</b> footfall count, rent limit (under 15% of expected sales), power load, signboard visibility, distance from your other stores.</li>
+        <li><b>Fit-out pack:</b> one layout drawing, one equipment list, the same counter, display and signboard from the same vendors.</li>
+        <li><b>Licence list:</b> FSSAI, trade licence and Shops and Establishments for the new address, applied for the day the rent agreement is signed.</li>
+        <li><b>Hiring pack:</b> job post, interview questions, paid trial shift. Hire 3 weeks before opening.</li>
+        <li><b>Training:</b> the 5-day plan, with days 2 to 5 done at an existing store.</li>
+        <li><b>Billing setup:</b> copy store 1's menu, recipes and alerts into the new outlet in the billing app.</li>
+        <li><b>Launch:</b> free samples for the first 3 days, Instagram posts, flyers to nearby colleges and offices.</li>
+      </ol>
+    </section>
+
+    <section id="money">
+      <h2>Paying for growth</h2>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Item</th><th>Estimate</th></tr></thead>
+          <tbody>
+            <tr><td>Central kitchen setup, once</td><td class="t">₹3,00,000 – 4,00,000</td></tr>
+            <tr><td>Each new small store: deposit, fit-out, oven, freezer, display, billing, CCTV</td><td class="t">₹5,00,000 – 8,00,000</td></tr>
+            <tr><td>Cash to run a new store for its first 2 months</td><td class="t">about ₹1,60,000</td></tr>
+            <tr><td>Profit from one new store selling 200 a day, before kitchen costs</td><td class="t">₹56,000 – 75,500 / month</td></tr>
+            <tr><td>Time for a new store to earn back its setup cost</td><td class="t">about 9 – 12 months</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Fund store 2 mostly from store 1's profit, with a Mudra loan to close the gap. Don't take on a second loan while the first new store is still below its break-even. A good rule: each new store should earn back its setup cost within 12 months. If one doesn't, fix it or close it before opening the next.</p>
+    </section>
+
+    <section id="kpis">
+      <h2>Numbers to watch</h2>
+      <p>With several stores, compare stores with each other every week. The weakest store shows you where to look.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Measure</th><th>Target</th><th>Why it matters</th></tr></thead>
+          <tbody>
+            <tr><td>Cookies per store per day</td><td class="t g">above 118</td><td>The store's own break-even before kitchen costs (about 103 once cost falls to ₹27)</td></tr>
+            <tr><td>Same-store sales growth</td><td class="t g">above 0%</td><td>Compares each store with the same month last year, so new stores don't hide a decline</td></tr>
+            <tr><td>Dough gap per store</td><td class="t g">under 1%</td><td>Dough received minus cookies sold, waste and stock left</td></tr>
+            <tr><td>Kitchen cost per dough ball</td><td class="t g">falling</td><td>Should drop as more stores share the kitchen</td></tr>
+            <tr><td>Waste per store</td><td class="t g">under 8%</td><td>Shows which store over-bakes</td></tr>
+            <tr><td>Months to earn back setup</td><td class="t g">12 or fewer</td><td>Decides whether you open the next store</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="risks">
+      <h2>Risks</h2>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Risk</th><th>How to guard against it</th></tr></thead>
+          <tbody>
+            <tr><td>Opening too fast and running out of cash</td><td>Open only when every gate in section 3 passes</td></tr>
+            <tr><td>The kitchen stops: power cut, sick baker, flood</td><td>2 days of dough at every store, a generator, and a second person trained to mix</td></tr>
+            <tr><td>Taste changes between batches</td><td>Recipes by weight, batch photos, a weekly taste test against the reference cookie</td></tr>
+            <tr><td>Stores steal sales from each other</td><td>2 to 3 km apart and aimed at different crowds</td></tr>
+            <tr><td>Staff leaving</td><td>Pay on time, Puja bonus before Puja, a clear path from salesperson to shop lead to operations manager</td></tr>
+            <tr><td>Butter or chocolate prices rise</td><td>Two suppliers each, bulk contracts, and a price review every 3 months</td></tr>
+            <tr><td>Monsoon slows walk-in sales</td><td>Push delivery and café orders from June to September</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
