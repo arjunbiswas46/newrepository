@@ -1,0 +1,610 @@
+<title>Siliguri Cookie Business Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: single reading column with a sticky section index on wide screens; tables scroll inside their own boxes. */
+:root {
+  --bg: #fbf8f6;
+  --panel: #ffffff;
+  --fg: #2a1d17;
+  --muted: #7a6a62;
+  --line: #eadfd8;
+  --accent: #6b3a1f;
+  --accent-soft: #f3e6dc;
+  --butter: #e9b949;
+  --good: #2f7d4f;
+  --warn: #a86a00;
+  --bad: #b3372a;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1a1411; --panel: #241c18; --fg: #f3e9e3; --muted: #b3a197; --line: #3a2e28;
+    --accent: #e0a47a; --accent-soft: #3a2a20; --butter: #e9c060; --good: #6cc48f; --warn: #e6b04f; --bad: #f08576;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1a1411; --panel: #241c18; --fg: #f3e9e3; --muted: #b3a197; --line: #3a2e28;
+  --accent: #e0a47a; --accent-soft: #3a2a20; --butter: #e9c060; --good: #6cc48f; --warn: #e6b04f; --bad: #f08576;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 40px 16px 80px; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 48px; }
+@media (max-width: 860px) { .wrap { grid-template-columns: 1fr; gap: 24px; } nav.toc { position: static; } }
+nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; font-size: 14px; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; counter-reset: s; }
+nav.toc li { counter-increment: s; }
+nav.toc a { color: var(--muted); text-decoration: none; display: flex; gap: 8px; padding: 2px 0; }
+nav.toc a::before { content: counter(s); font-family: var(--mono); font-size: 12px; color: var(--accent); width: 16px; }
+nav.toc a:hover, nav.toc a:focus-visible { color: var(--fg); }
+@media (max-width: 860px) { nav.toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+main { min-width: 0; }
+header { margin-bottom: 40px; }
+.eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); font-weight: 600; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(32px, 6vw, 48px); line-height: 1.05; margin: 6px 0 12px; text-wrap: balance; }
+.lede { font-size: 18px; max-width: 62ch; color: var(--fg); margin: 0; }
+section { padding-block: 32px; border-top: 1px solid var(--line); scroll-margin-top: 16px; }
+h2 { font-family: var(--display); font-weight: 800; font-size: 26px; line-height: 1.2; margin: 0 0 8px; text-wrap: balance; }
+h3 { font-family: var(--display); font-weight: 600; font-size: 18px; margin: 24px 0 8px; }
+p { max-width: 68ch; margin: 0 0 12px; }
+.muted { color: var(--muted); }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tablebox { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); margin: 12px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; background: var(--accent-soft); }
+td.t { font-family: var(--mono); font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.tag.auto { border-color: var(--good); color: var(--good); }
+.tag.people { border-color: var(--accent); color: var(--accent); }
+.roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+@media (max-width: 720px) { .roles { grid-template-columns: 1fr; } }
+.role { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+.role h3 { margin: 0 0 2px; }
+.role .hrs { font-family: var(--mono); font-size: 13px; color: var(--accent); margin-bottom: 8px; }
+.role ul { margin: 0; padding-left: 18px; font-size: 14px; display: grid; gap: 4px; }
+.stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+@media (max-width: 640px) { .stack { grid-template-columns: 1fr; } }
+.tool { border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; background: var(--panel); }
+.tool b { display: block; font-weight: 600; }
+.tool .does { font-size: 14px; margin: 4px 0 6px; }
+.tool .ex { font-size: 13px; color: var(--muted); }
+.flow { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; overflow-x: auto; margin: 16px 0; }
+.rule { font-family: var(--mono); font-size: 13px; }
+.rule .if { color: var(--muted); }
+.kpi-state { font-weight: 600; font-size: 12px; }
+.g { color: var(--good); } .w { color: var(--warn); } .r { color: var(--bad); }
+ol.steps { padding-left: 20px; display: grid; gap: 8px; max-width: 68ch; }
+.callout { background: var(--accent-soft); border-radius: 8px; padding: 16px; margin: 16px 0; max-width: 68ch; }
+.callout p:last-child { margin: 0; }
+.recipe { font-family: var(--mono); font-size: 13px; background: var(--panel); border: 1px dashed var(--line); border-radius: 8px; padding: 16px; overflow-x: auto; white-space: pre; line-height: 1.7; }
+.phases { display: grid; gap: 12px; margin-top: 12px; }
+.phase { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 16px; }
+@media (max-width: 560px) { .phase { grid-template-columns: 1fr; gap: 4px; } }
+.phase .when { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+.phase ul { margin: 4px 0 0; padding-left: 18px; font-size: 14px; }
+</style>
+
+<style>
+ul.sys { margin: 0; padding-left: 18px; display: grid; gap: 6px; max-width: 68ch; }
+ul.sys b, ol.steps b, td b { font-weight: 600; }
+.thesis { counter-reset: t; list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 10px; max-width: 72ch; }
+.thesis li { counter-increment: t; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px; }
+.thesis li::before { content: counter(t); font-family: var(--mono); color: var(--accent); font-size: 14px; padding-top: 2px; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+@media (max-width: 640px) { .two { grid-template-columns: 1fr; } }
+.box { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+.box h3 { margin: 0 0 6px; }
+.box ul { margin: 0; padding-left: 18px; font-size: 14px; display: grid; gap: 4px; }
+h2 .part { display: block; font-family: var(--body); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+</style>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Sections">
+    <ol>
+      <li><a href="#summary">The plan on one page</a></li>
+      <li><a href="#model">Business model</a></li>
+      <li><a href="#units">Unit economics</a></li>
+      <li><a href="#roadmap">Growth roadmap</a></li>
+      <li><a href="#ops">Operations plan</a></li>
+      <li><a href="#governance">Owner-free governance</a></li>
+      <li><a href="#marketing">Marketing plan</a></li>
+      <li><a href="#sales">Sales plan</a></li>
+      <li><a href="#franchise">Franchise plan</a></li>
+      <li><a href="#finance">Financial plan</a></li>
+      <li><a href="#risks">Risks</a></li>
+      <li><a href="#next90">First 90 days</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header>
+      <div class="eyebrow">Business plan · Siliguri, then North Bengal and Sikkim</div>
+      <h1>Siliguri Cookie Business Plan</h1>
+      <p class="lede">An asset-light cookie brand that the owner governs but does not run. The company owns the brand, the recipes, the systems and the customer data. A licensed bakery makes the dough, small kiosks and partner cafés sell it, and from year two franchisees pay for new outlets. Growth comes from repeating a proven unit, not from the owner's time or money.</p>
+      <p class="muted" style="margin-top:12px">Product: a 75 g cookie at ₹60. All figures are planning estimates for 2026 Siliguri prices, before income tax. This plan replaces the owned-kitchen model in the <a href="https://claude.ai/artifact/CkcsQEPHeaWVpef9s9D6qS">Growth Plan</a>; daily store routines stay as in the <a href="https://claude.ai/artifact/W9Pw5aJgr6FhfW6Yhd1Smx">Operations Playbook</a>.</p>
+    </header>
+
+    <section id="summary">
+      <h2>The plan on one page</h2>
+      <ol class="thesis">
+        <li><div><b>Own what is scarce, rent what is common.</b> The brand, recipes, systems and customer list are ours. Ovens, kitchens, shop space and outlet capital belong to partners.</div></li>
+        <li><div><b>Prove one unit first.</b> One company kiosk and 10 café partners in Siliguri, months 0 to 6.</div></li>
+        <li><div><b>Repeat it from profits.</b> Three kiosks in different formats, 40 partners and festive gifting, months 6 to 18. Hire an operations head so the owner steps back.</div></li>
+        <li><div><b>Franchise once the numbers are proven.</b> 15 franchise kiosks across North Bengal and Sikkim, months 18 to 36. Franchisees invest; we earn royalty and a margin on dough.</div></li>
+        <li><div><b>The owner chairs, the operations head runs.</b> The owner keeps the bank, approvals above ₹50,000, leases, leaders and strategy. Everything else runs on written systems and a weekly dashboard.</div></li>
+      </ol>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th></th><th>Phase 1 · month 6</th><th>Phase 2 · month 18</th><th>Phase 3 · month 36</th></tr></thead>
+          <tbody>
+            <tr><td>Outlets</td><td>1 kiosk, 10 partners</td><td>3 kiosks, 40 partners</td><td>3 kiosks, 15 franchises, 100 partners</td></tr>
+            <tr><td>Cookies sold per day, all outlets</td><td class="t">400</td><td class="t">1,290</td><td class="t">5,520</td></tr>
+            <tr><td>Sales across all outlets, per month</td><td class="t">₹6.3 lakh</td><td class="t">₹20.4 lakh</td><td class="t">₹92.6 lakh</td></tr>
+            <tr><td><b>Company profit per month</b></td><td class="t"><b>₹1.17 lakh</b></td><td class="t"><b>₹3.30 lakh</b></td><td class="t"><b>₹10.6 lakh</b></td></tr>
+            <tr><td>Company money invested in the phase</td><td class="t">₹7–9 lakh</td><td class="t">₹8–10 lakh, from profits</td><td class="t">₹4–6 lakh; franchisees fund outlets</td></tr>
+            <tr><td>Owner's time</td><td>Setup, then 4–8 hrs/week</td><td>2–4 hrs/week</td><td>2–4 hrs/week</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="model">
+      <h2>Business model</h2>
+      <p>The company is a brand-and-systems business. It makes money from the gap between what customers pay and what partners charge, and later from royalties. Each part of the work goes to whoever already owns the asset it needs.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Part of the business</th><th>Who owns or does it</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Brand, trademark, recipes</td><td><b>Company</b></td><td>The only things that can't be bought. They make every outlet worth more.</td></tr>
+            <tr><td>Systems, data, customer list</td><td><b>Company</b></td><td>Billing app, WhatsApp list and loyalty data stay in company accounts, including at franchises.</td></tr>
+            <tr><td>Dough production</td><td>Licensed bakery under contract (co-packer)</td><td>No kitchen rent, equipment or bakers to manage. Paid per dough ball.</td></tr>
+            <tr><td>Shop space</td><td>Kiosks on short leases; partners' counters</td><td>100–150 sq ft instead of a full shop. Cookie jars sit in other people's cafés.</td></tr>
+            <tr><td>Ovens and freezers</td><td>Rented from equipment vendors</td><td>A monthly rent instead of buying. Easy to move or return.</td></tr>
+            <tr><td>Delivery</td><td>Riders paid per trip; Swiggy and Zomato</td><td>No vehicles.</td></tr>
+            <tr><td>Accounts, payroll, content</td><td>CA, payroll app, freelance creators</td><td>Pay for output, not headcount.</td></tr>
+            <tr><td>New outlets from year 2</td><td>Franchisees</td><td>Their capital, their daily presence; our system and brand.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>The growth loop</h3>
+      <div class="flow">
+<pre class="mermaid">
+flowchart LR
+  A[More outlets and partners] --> B[More dough volume]
+  B --> C[Lower price from co-packer]
+  C --> D[Better margins for us and franchisees]
+  D --> E[Bigger marketing fund]
+  E --> F[Better-known brand]
+  F --> G[More franchise applicants, partners and customers]
+  G --> A
+</pre>
+      </div>
+      <h3>The trade-off</h3>
+      <p>Renting production costs margin. A co-packer charges about ₹4 per cookie for mixing and freezing, so our cost is ₹27.50 instead of ₹23.50, and we keep ₹25.45 per kiosk cookie instead of ₹29.80. In return there is no kitchen to set up, no baker to manage, and no capacity limit as we grow. The real risks are quality and recipe leaks; the contract and quality system below are built for those.</p>
+    </section>
+
+    <section id="units">
+      <h2>Unit economics</h2>
+      <p>The business has four money-making units. Each is small and repeatable. Growth means adding more of whichever unit earns best.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th></th><th>Company kiosk</th><th>Cookie-jar partner</th><th>Gift boxes</th><th>Franchise kiosk</th></tr></thead>
+          <tbody>
+            <tr><td>What it is</td><td>100–150 sq ft counter with oven, two staff</td><td>Our jar of baked cookies in a café, gym or hotel</td><td>Boxes of 6 and hampers, made to order</td><td>Same kiosk, owned and paid for by a franchisee</td></tr>
+            <tr><td>Price to customer</td><td class="t">₹60</td><td class="t">₹60 MRP</td><td class="t">₹330 for 6</td><td class="t">₹60</td></tr>
+            <tr><td>We earn per cookie</td><td class="t">₹25.45</td><td class="t">₹6.25</td><td class="t">₹20.38</td><td class="t">₹5.93</td></tr>
+            <tr><td>Monthly fixed cost to us</td><td class="t">₹85,000</td><td class="t">none</td><td class="t">none</td><td class="t">none</td></tr>
+            <tr><td>Setup cost to us</td><td class="t">₹4–6 lakh</td><td class="t">₹1,500 jar</td><td class="t">box stock</td><td class="t">₹0</td></tr>
+            <tr><td>Monthly profit to us</td><td class="t">₹1.06 lakh at 250/day</td><td class="t">₹2,800 at 15/day</td><td class="t">₹20 per cookie</td><td class="t">₹39,000 at 220/day</td></tr>
+            <tr><td>Break-even</td><td class="t">112 cookies/day</td><td class="t">from the first sale</td><td class="t">from the first box</td><td class="t">from the first sale</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>How each number is built</h3>
+      <ul class="sys">
+        <li><b>Company kiosk:</b> ₹60 less 5% GST is ₹57.14. Less ₹27.50 cost (co-packer dough ₹23.50, packaging ₹4) grossed up for 8% waste, and 3% payment fees, leaves ₹25.45. Monthly costs: rent ₹25,000, power ₹6,000, two salespeople ₹24,000 (legal minimum plus Puja bonus), rented oven and freezer ₹5,000, billing and CCTV ₹2,500, licences ₹1,500, marketing ₹15,000, repairs ₹3,000, dough delivery ₹3,000.</li>
+        <li><b>Cookie-jar partner:</b> the partner buys at ₹40 plus GST and sells at ₹60, keeping a third. We pay ₹27.50 to make it, ₹1.50 to deliver, allow 10% for unsold cookies taken back, and pay our sales executive 5%.</li>
+        <li><b>Gift boxes:</b> ₹330 a box of 6 (₹55 a cookie) less GST, cookie cost, ₹8 box, 1% fees and 5% commission. No waste, because boxes are made to order.</li>
+        <li><b>Franchise kiosk, our side:</b> 6% royalty on sales after GST (₹3.43 a cookie) plus ₹2.50 margin on each dough and packaging kit we supply at ₹30.</li>
+      </ul>
+      <h3>The franchisee's side</h3>
+      <p>A franchise only sells if it pays the franchisee well. They invest ₹6–8 lakh including a ₹2.5 lakh fee. After paying ₹30 a kit, 6% royalty and 2% to the marketing fund, they keep ₹18.16 a cookie. With costs of ₹75,000 a month, they break even at 138 cookies a day, make about ₹45,000 a month at 220 a day and ₹61,000 at 250, and earn back their investment in 11 to 16 months. That is the pitch, and it has to be proven at company kiosks first.</p>
+    </section>
+
+    <section id="roadmap">
+      <h2>Growth roadmap</h2>
+      <p>Each phase ends with a gate. The next phase starts only when every condition in the gate is met, however tempting an opportunity looks.</p>
+      <div class="phases">
+        <div class="phase"><div class="when">Phase 0<br>Months −3 to 0<br>Build</div><div><b>Set up the company and the supply.</b> Register a private limited company, file the trademark, finish the recipe with a co-packer, sign the kiosk lease, get the licences, hire the store lead.<ul><li>Owner's time: about 15 hours a week. This is a project, not a job.</li><li>Gate: 3 trial batches from the co-packer pass the quality spec; licences in hand.</li></ul></div></div>
+        <div class="phase"><div class="when">Phase 1<br>Months 0–6<br>Prove</div><div><b>One company kiosk, 10 partners, delivery apps, WhatsApp orders.</b> Choose a high-footfall site such as a mall, a college area or Sevoke Road. A part-time sales executive signs café and gym partners.<ul><li>Targets: kiosk at 250 cookies a day by month 6; 10 partners reordering every week; 4.5+ Google rating.</li><li>Gate: kiosk above 200 a day for 3 months, waste under 8%, co-packer passing 98% of quality checks.</li></ul></div></div>
+        <div class="phase"><div class="when">Phase 2<br>Months 6–18<br>Repeat</div><div><b>Kiosks 2 and 3, 40 partners, gifting, an operations head.</b> Open each new kiosk in a different format (mall, college zone, near NJP station or the bus terminus) to learn which works best. Hire the operations head between months 6 and 9; the owner moves to a chair role. Qualify a second co-packer. Write the franchise manual.<ul><li>Targets: 3 kiosks averaging 230 a day; 40 partners; 1,500 gift-box cookies a month, with 3 to 5 times that around Diwali.</li><li>Gate: all 3 kiosks profitable for 6 months, one of them run by a team hired after launch; trademark filed; franchise agreement drafted by a lawyer.</li></ul></div></div>
+        <div class="phase"><div class="when">Phase 3<br>Months 18–36<br>Franchise</div><div><b>15 franchise kiosks across North Bengal and Sikkim.</b> Two pilot franchises in Siliguri first, then Jalpaiguri, Cooch Behar, Alipurduar, Malda, Darjeeling, Kalimpong and Gangtok. 100 cookie-jar partners, including hotels and homestays in the hills. Packaged gift boxes in partner shops once shelf life is tested.<ul><li>Targets: 1 new franchise a month after the pilots; 5,500 cookies a day across the network.</li><li>Decision point: at this volume, either sign a second co-packer or build a company dough facility paid for by the dough margin.</li></ul></div></div>
+        <div class="phase"><div class="when">Phase 4<br>Years 3–5<br>Region</div><div><b>Guwahati and the Northeast through a master franchisee</b>, who opens and manages outlets in their region. Online gift boxes across India. The owner's job is now choosing partners and protecting the brand.</div></div>
+      </div>
+    </section>
+
+    <section id="ops">
+      <h2><span class="part">Part 1</span>Operations plan</h2>
+      <h3>Organisation by phase</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Role</th><th>Phase 1</th><th>Phase 2</th><th>Phase 3</th><th>Paid</th></tr></thead>
+          <tbody>
+            <tr><td>Owner (chair)</td><td>✓</td><td>✓</td><td>✓</td><td>Profit, not salary</td></tr>
+            <tr><td>Operations head, runs the business</td><td>—</td><td class="t">1</td><td class="t">1</td><td>₹35,000–45,000 + bonus on profit</td></tr>
+            <tr><td>Store lead (senior salesperson)</td><td class="t">1</td><td class="t">3</td><td class="t">3</td><td>₹13,000 + store bonus</td></tr>
+            <tr><td>Salespeople</td><td class="t">1</td><td class="t">3</td><td class="t">3</td><td>₹11,000 + upsell incentive</td></tr>
+            <tr><td>B2B sales executive</td><td>Part-time</td><td class="t">1</td><td class="t">2</td><td>Fixed + 5% commission</td></tr>
+            <tr><td>Route rider for partners</td><td>Per trip</td><td>Per trip</td><td class="t">1–2</td><td>Per trip or fixed</td></tr>
+            <tr><td>Franchise manager</td><td>—</td><td>—</td><td class="t">1</td><td>₹35,000 + per signing</td></tr>
+            <tr><td>Quality and training</td><td>Store lead</td><td>Operations head</td><td class="t">1</td><td>₹15,000</td></tr>
+            <tr><td>Marketing</td><td>Freelancer</td><td>Freelancer</td><td class="t">1</td><td>₹15,000–30,000</td></tr>
+            <tr><td>Accounts</td><td>CA</td><td>CA</td><td>Clerk + CA</td><td>Outsourced first</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Franchise kiosks employ their own staff, so the company's headcount stays small as the network grows.</p>
+
+      <h3>Supply chain</h3>
+      <div class="flow">
+<pre class="mermaid">
+flowchart LR
+  I[Butter and chocolate: brands we specify] --> C[Co-packer bakery]
+  C -->|frozen dough, daily 7:00| K[Company and franchise kiosks]
+  C -->|baked cookies, every other day| J[Cookie-jar partners]
+  C -->|boxed to order| G[Gift and corporate orders]
+  K --> B[Billing app]
+  J --> B
+  B -->|next day's order| C
+</pre>
+      </div>
+      <div class="two">
+        <div class="box">
+          <h3>Choosing the co-packer</h3>
+          <ul>
+            <li>FSSAI licence covering bakery manufacturing</li>
+            <li>Spare capacity of at least 2,000 dough balls a day</li>
+            <li>Blast or deep freezer and clean, separate production area</li>
+            <li>Within 30 minutes of the first kiosk</li>
+            <li>Willing to sign a confidentiality agreement and allow visits without notice</li>
+            <li>Does not sell its own cookies under another brand</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>What the contract must say</h3>
+          <ul>
+            <li>The recipe belongs to the company and stays confidential, with a penalty for misuse</li>
+            <li>Specification: 75 g ± 3 g, named ingredient brands, labelled batch codes</li>
+            <li>Price per ball linked to butter and chocolate prices, reviewed every quarter</li>
+            <li>Order cut-off 21:00, delivery by 7:00</li>
+            <li>A sample from every batch kept for 7 days</li>
+            <li>Right to audit, and to end the contract on 30 days' notice</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:12px">Protect the recipe further by buying the signature chocolate and any flavourings yourself and supplying them to the co-packer. Qualify a second co-packer by month 12, so no single supplier can stop the business.</p>
+
+      <h3>Outlet operations</h3>
+      <p>Every kiosk, company or franchise, runs the same routine from the <a href="https://claude.ai/artifact/W9Pw5aJgr6FhfW6Yhd1Smx">Operations Playbook</a>: opening and closing checklists, hourly bake plan, waste logging, one UPI QR on the bill, blind cash count. Each kiosk keeps 2 days of dough in its freezer so a missed delivery never closes it. A board at the counter shows the time of the next fresh batch.</p>
+
+      <h3>Quality system</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Check</th><th>Standard</th><th>Who, how often</th></tr></thead>
+          <tbody>
+            <tr><td>Dough ball weight</td><td>75 g ± 3 g; 5 balls weighed per batch</td><td>Co-packer each batch; kiosk on receipt</td></tr>
+            <tr><td>Baked cookie</td><td>Matches the reference photo for colour, spread and texture</td><td>Store lead, first bake each day</td></tr>
+            <tr><td>Taste panel</td><td>3 people score 5 cookies against the standard</td><td>Operations head, weekly</td></tr>
+            <tr><td>Co-packer audit</td><td>Hygiene, freezer temperature, batch records, ingredient invoices</td><td>Operations head, monthly, unannounced</td></tr>
+            <tr><td>Mystery shopper</td><td>Greeting, freshness, bill given, cleanliness</td><td>Paid shopper, each outlet monthly</td></tr>
+            <tr><td>Customer rating</td><td>4.6 or higher on Google and the delivery apps</td><td>Dashboard, weekly</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Technology</h3>
+      <ul class="sys">
+        <li><b>Billing app with multi-outlet and stock</b> (for example Petpooja): every company and franchise outlet must use it. Royalty is calculated from it, and the dough order is generated from it.</li>
+        <li><b>Simple CRM</b> (Zoho Bigin or a shared Google Sheet) for partner, corporate and franchise leads.</li>
+        <li><b>WhatsApp Business</b> for orders, the broadcast list and alerts.</li>
+        <li><b>Payroll and attendance app</b> (PagarBook, Kredily) with selfie attendance at the outlet.</li>
+        <li><b>Accounting</b> (Zoho Books or Tally), kept by the CA.</li>
+        <li><b>One dashboard</b> (Google Looker Studio, free) showing every outlet's sales, waste, rating and dough gap, sent to the owner every Monday.</li>
+      </ul>
+    </section>
+
+    <section id="governance">
+      <h2>Owner-free governance</h2>
+      <p>The owner acts like a board of directors: sets direction, approves big decisions, appoints the leader and checks the numbers. Day-to-day authority sits in a written approval table.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Decision</th><th>Store lead</th><th>Operations head</th><th>Owner</th></tr></thead>
+          <tbody>
+            <tr><td>Purchases and repairs</td><td>Up to ₹5,000</td><td>Up to ₹50,000</td><td>Above ₹50,000</td></tr>
+            <tr><td>Discounts and offers</td><td>Approved offers only</td><td>Within the marketing budget</td><td>New price list</td></tr>
+            <tr><td>Hiring</td><td>Recommends</td><td>All outlet and B2B staff</td><td>Operations head, franchise manager</td></tr>
+            <tr><td>New partner or corporate account</td><td>—</td><td>Approves</td><td>—</td></tr>
+            <tr><td>New lease, loan or franchise signing</td><td>—</td><td>Proposes</td><td>Approves</td></tr>
+            <tr><td>Recipe or supplier change</td><td>—</td><td>Proposes with test results</td><td>Approves</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="two">
+        <div class="box">
+          <h3>Controls only the owner holds</h3>
+          <ul>
+            <li>Bank: the operations head prepares payments, the owner approves them in the bank app</li>
+            <li>Owner login on the billing app; staff can't delete bills or change prices</li>
+            <li>Trademark, recipes, co-packer and franchise contracts in the company's name</li>
+            <li>Quarterly check of the books and stock by the CA</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>The owner's calendar</h3>
+          <ul>
+            <li>Monday: read the dashboard (15 minutes)</li>
+            <li>Any day: approve payments and big decisions in the apps</li>
+            <li>Monthly: 2-hour review with the operations head: results, problems, next month's plan</li>
+            <li>Quarterly: half-day strategy and budget review</li>
+            <li>Yearly: set targets and the operations head's bonus</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="marketing">
+      <h2><span class="part">Part 2</span>Marketing plan</h2>
+      <h3>Positioning</h3>
+      <div class="callout">
+        <p>For young people in Siliguri and anyone buying a gift, this is the big cookie that is still warm: baked every hour in front of you, never sitting in a packet, with flavours from the hills. At ₹60 it costs less than a coffee.</p>
+      </div>
+      <h3>Who we sell to</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Customer</th><th>What they want</th><th>Where we reach them</th><th>Offer</th></tr></thead>
+          <tbody>
+            <tr><td>Students, 16–24</td><td>A treat under ₹100</td><td>Instagram, college ambassadors, coaching-centre areas</td><td>Student combo, loyalty card</td></tr>
+            <tr><td>Young professionals, 22–35</td><td>Afternoon snack, delivery</td><td>Swiggy, Zomato, office partner jars</td><td>4-pack</td></tr>
+            <tr><td>Families and shoppers</td><td>Weekend treat</td><td>Mall kiosk, free tastings</td><td>Box of 6</td></tr>
+            <tr><td>Tourists and travellers</td><td>A gift from Siliguri</td><td>Hotels, homestays, transit kiosks</td><td>Gift tin with the Darjeeling tea cookie</td></tr>
+            <tr><td>Companies, schools, wedding hosts</td><td>Gifts in bulk</td><td>Direct sales</td><td>Boxes with their logo</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Menu</h3>
+      <ul class="sys">
+        <li><b>Four core cookies, always available:</b> classic chocolate chunk, double chocolate, oats and raisin, and an eggless chocolate chip.</li>
+        <li><b>One local signature:</b> a Darjeeling tea cookie, for tourists and gift boxes.</li>
+        <li><b>A limited cookie every month</b> to bring regulars back: nolen gur (date-palm jaggery) in winter, mango in summer, a Puja special in October.</li>
+        <li><b>Formats:</b> single, 4-pack, box of 6, gift tin of 12, partner jar.</li>
+      </ul>
+      <h3>Prices</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Format</th><th>Price</th><th>Per cookie</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td>Single</td><td class="t">₹60</td><td class="t">₹60</td><td>Entry price, impulse buy</td></tr>
+            <tr><td>4-pack</td><td class="t">₹220</td><td class="t">₹55</td><td>Raises the average bill</td></tr>
+            <tr><td>Box of 6</td><td class="t">₹330</td><td class="t">₹55</td><td>Sharing and small gifts</td></tr>
+            <tr><td>Gift tin of 12</td><td class="t">₹699</td><td class="t">₹58</td><td>Festivals and tourists; premium packaging</td></tr>
+            <tr><td>Corporate, 200+ cookies</td><td class="t">from ₹52</td><td class="t">₹48–52</td><td>Volume orders with logo sleeve</td></tr>
+            <tr><td>Delivery apps</td><td class="t">15–20% higher</td><td></td><td>Covers app commission</td></tr>
+            <tr><td>Partner jars</td><td class="t">₹40 + GST to partner</td><td class="t">₹60 MRP</td><td>Partner keeps a third</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Brand basics</h3>
+      <ul class="sys">
+        <li><b>Name:</b> short, easy to say in Bengali, Hindi, Nepali and English, with the Instagram handle and .in domain free, and no close match in a trademark search. File in classes 30 (bakery goods), 35 (retail and franchising) and 43 (food service).</li>
+        <li><b>Look:</b> one strong colour, the same jar, box and counter everywhere. The oven is visible from the counter, because the smell and sight of fresh baking are the best advertising.</li>
+        <li><b>Signature moment:</b> the "next batch at 4:30" board, so people come back for warm cookies.</li>
+      </ul>
+      <h3>Launch plan</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>When</th><th>What</th></tr></thead>
+          <tbody>
+            <tr><td class="t">30 days before</td><td>Instagram and Google Business Profile live; behind-the-scenes reels of recipe testing; "first 500 followers get a free cookie" post</td></tr>
+            <tr><td class="t">14 days before</td><td>Invite 10 Siliguri food creators to a private tasting; sign the first 5 partner cafés</td></tr>
+            <tr><td class="t">7 days before</td><td>Flyers at nearby colleges, coaching centres and offices; WhatsApp group of early followers</td></tr>
+            <tr><td class="t">Launch week</td><td>3,000 free bite-size samples; buy 4 get 1 free; creators post on the same day</td></tr>
+            <tr><td class="t">First 30 days</td><td>Ask every happy customer for a Google review; collect WhatsApp numbers with the loyalty card; list on Swiggy and Zomato from week 2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Always-on marketing</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Channel</th><th>What we do</th><th>Target</th></tr></thead>
+          <tbody>
+            <tr><td>Instagram</td><td>3 reels a week: cookies coming out of the oven, the cookie of the month, customers, staff</td><td>5,000 local followers in year 1</td></tr>
+            <tr><td>Google Business Profile</td><td>New photos weekly; ask for reviews on every receipt</td><td>300 reviews, 4.6+ rating in year 1</td></tr>
+            <tr><td>WhatsApp broadcast</td><td>Our own list; at most 2 messages a week: new flavour, offers, gift reminders</td><td>2,000 numbers in 6 months</td></tr>
+            <tr><td>Loyalty</td><td>Buy 9, the 10th is free, tracked in the billing app</td><td>35% of sales from repeat customers</td></tr>
+            <tr><td>Partner jars</td><td>Every jar carries the brand and the nearest kiosk</td><td>Each jar works as a small billboard</td></tr>
+            <tr><td>Events</td><td>Stalls at college fests and near Durga Puja pandals</td><td>4 events a year</td></tr>
+            <tr><td>Delivery apps</td><td>Paid promotion only when it brings in more profit than it costs</td><td>Delivery at 15% of kiosk sales</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Year calendar</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Month</th><th>Campaign</th></tr></thead>
+          <tbody>
+            <tr><td class="t">Jan – Feb</td><td>Nolen gur cookie; Saraswati Puja school orders; Valentine's boxes</td></tr>
+            <tr><td class="t">Apr</td><td>Poila Baisakh gift boxes</td></tr>
+            <tr><td class="t">May – Jun</td><td>Tourist season: gift tins at hotels and transit; mango cookie</td></tr>
+            <tr><td class="t">Jul – Sep</td><td>Monsoon delivery offers; Friendship Day packs; Rakhi gift boxes; Diwali corporate pre-booking opens 1 September</td></tr>
+            <tr><td class="t">Oct</td><td>Durga Puja special and pandal stalls</td></tr>
+            <tr><td class="t">Nov</td><td>Diwali and Bhai Phota hampers, the biggest gifting month</td></tr>
+            <tr><td class="t">Dec</td><td>Christmas and New Year party packs</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Budget and measures</h3>
+      <p>Launch: about ₹75,000 once, mostly free samples and creators. After that, about 5% of sales at company kiosks (₹15,000 a month each in the model). Franchisees pay 2% of sales into a shared fund for regional campaigns. Track monthly: new followers, WhatsApp list size, repeat-customer share, review count and rating, and the cost of each offer against the extra sales it brought in.</p>
+    </section>
+
+    <section id="sales">
+      <h2><span class="part">Part 3</span>Sales plan</h2>
+      <h3>Revenue streams and targets</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Stream</th><th>Phase 1</th><th>Phase 2</th><th>Phase 3</th><th>Owner of the number</th></tr></thead>
+          <tbody>
+            <tr><td>Kiosk walk-in</td><td>250 a day</td><td>230 a day × 3</td><td>240 a day × 3</td><td>Store leads</td></tr>
+            <tr><td>Delivery apps and WhatsApp orders</td><td>10% of kiosk sales</td><td>15–20%</td><td>15–20%</td><td>Store leads</td></tr>
+            <tr><td>Cookie-jar partners</td><td>10 partners</td><td>40</td><td>100</td><td>B2B sales executive</td></tr>
+            <tr><td>Gift boxes and corporate</td><td>Festive only</td><td>1,500 cookies a month</td><td>4,000 a month</td><td>B2B sales executive</td></tr>
+            <tr><td>Franchise kiosks</td><td>—</td><td>Manual written</td><td>15 outlets</td><td>Franchise manager</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Selling at the counter</h3>
+      <ul class="sys">
+        <li>Offer a box every time: "Would you like 4 for ₹220?" Staff earn ₹2 for every 4-pack and ₹5 for every box of 6 or tin.</li>
+        <li>Free bite-size samples during slow hours.</li>
+        <li>Loyalty card and WhatsApp number on every first purchase.</li>
+        <li>Target average bill: ₹100 in Phase 1, ₹120 by Phase 2.</li>
+      </ul>
+      <h3>Selling to businesses</h3>
+      <p>Prospects in Siliguri: cafés and tea rooms, gyms, coworking spaces, coaching centres, hospital canteens, hotels near Sevoke Road and NJP, homestays on the Darjeeling and Sikkim routes, banks, insurance offices, car dealerships (customer gifts), tea estate offices, schools, and wedding planners.</p>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Step</th><th>What happens</th><th>Weekly target</th></tr></thead>
+          <tbody>
+            <tr><td class="t">1 · List</td><td>Add the business to the CRM with a contact name</td><td class="t">30 new</td></tr>
+            <tr><td class="t">2 · Visit</td><td>Walk in with a sample box and the one-page partner offer</td><td class="t">20 visits</td></tr>
+            <tr><td class="t">3 · Trial</td><td>Free jar for 2 weeks; we take back unsold cookies</td><td class="t">5 trials</td></tr>
+            <tr><td class="t">4 · Convert</td><td>Standing order with delivery days fixed</td><td class="t">30% of trials</td></tr>
+            <tr><td class="t">5 · Grow</td><td>Monthly check: sales per jar, a second jar, gift orders</td><td>Every account</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Corporate and festive gifting</h3>
+      <ul class="sys">
+        <li>Three-level catalogue: ₹250 box, ₹499 box, ₹999 hamper, with logo sleeves from 100 boxes.</li>
+        <li>7 days' notice, 50% advance, balance on delivery.</li>
+        <li>A list of 100 target companies, contacted from 1 September for Diwali.</li>
+        <li>After every order, send a photo and ask for next year's date.</li>
+      </ul>
+      <h3>Incentives</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Role</th><th>Incentive</th></tr></thead>
+          <tbody>
+            <tr><td>Salespeople</td><td>Per box and tin sold; monthly prize for the best review mentions</td></tr>
+            <tr><td>Store lead</td><td>10% of kiosk profit above break-even</td></tr>
+            <tr><td>B2B sales executive</td><td>5% of net sales from each account for its first 12 months</td></tr>
+            <tr><td>Operations head</td><td>Share of company profit above the yearly budget</td></tr>
+            <tr><td>Franchise manager</td><td>Fixed amount for each franchise that opens and stays open 6 months</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="franchise">
+      <h2>Franchise plan</h2>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Term</th><th>Proposal</th></tr></thead>
+          <tbody>
+            <tr><td>Franchise fee</td><td>₹2.5 lakh, covering site approval, training and launch support</td></tr>
+            <tr><td>Royalty</td><td>6% of sales after GST, every month</td></tr>
+            <tr><td>Marketing fund</td><td>2% of sales after GST, spent on regional campaigns</td></tr>
+            <tr><td>Supply</td><td>Dough and packaging only from the company, at ₹30 a cookie, linked to butter and chocolate prices</td></tr>
+            <tr><td>Systems</td><td>Company billing app, menu, prices and checklists are compulsory</td></tr>
+            <tr><td>Term and area</td><td>5 years, renewable; no other outlet within an agreed radius</td></tr>
+            <tr><td>Audits</td><td>Monthly mystery shopper; right to end the agreement for repeated quality failures</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>Who makes a good franchisee</h3>
+      <p>A local investor with ₹8–10 lakh available, who lives in the town, will be at the outlet daily or employ a full-time manager, and has run a shop or food business before. Turn down investors who want a passive investment with no one on site.</p>
+      <h3>Process</h3>
+      <ol class="steps">
+        <li>Enquiry form and a 20-minute call.</li>
+        <li>Discovery day at a company kiosk: work a shift.</li>
+        <li>Site proposed by the franchisee, checked against our site rules.</li>
+        <li>Agreement signed, fee paid.</li>
+        <li>30 days of setup with the company's fit-out vendors; 7 days of training.</li>
+        <li>Launch with the company's launch kit and team for the first week.</li>
+      </ol>
+      <p class="muted">India has no single franchise law, so the agreement does all the work. Have a franchise lawyer draft it and register the trademark before signing the first franchisee.</p>
+    </section>
+
+    <section id="finance">
+      <h2>Financial plan</h2>
+      <h3>Company profit per month, end of each phase</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th></th><th>Phase 1</th><th>Phase 2</th><th>Phase 3</th></tr></thead>
+          <tbody>
+            <tr><td>Company kiosks</td><td class="t">₹1,05,900</td><td class="t">₹2,71,800</td><td class="t">₹2,94,800</td></tr>
+            <tr><td>Cookie-jar partners</td><td class="t">₹28,100</td><td class="t">₹1,12,500</td><td class="t">₹2,81,300</td></tr>
+            <tr><td>Gift boxes and corporate</td><td class="t">—</td><td class="t">₹30,600</td><td class="t">₹81,500</td></tr>
+            <tr><td>Franchise royalty and dough margin</td><td class="t">—</td><td class="t">—</td><td class="t">₹5,86,900</td></tr>
+            <tr><td>Central team and services</td><td class="t">−₹17,000</td><td class="t">−₹85,000</td><td class="t">−₹1,85,000</td></tr>
+            <tr><td><b>Company profit before tax</b></td><td class="t"><b>₹1,17,000</b></td><td class="t"><b>₹3,29,900</b></td><td class="t"><b>₹10,59,500</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted">Central team: Phase 1 is a part-time sales executive, CA and software. Phase 2 adds the operations head, a full-time sales executive, a marketing freelancer and a route rider. Phase 3 adds the franchise manager, quality lead, second sales executive and an accounts clerk. Franchise fees (₹2.5 lakh each, about ₹37.5 lakh over Phase 3) are left out of the monthly figures; they pay for the franchise team and legal costs.</p>
+      <h3>Money needed</h3>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Item</th><th>Estimate</th><th>Paid from</th></tr></thead>
+          <tbody>
+            <tr><td>Company registration, trademark, legal</td><td class="t">₹50,000 – 75,000</td><td>Owner</td></tr>
+            <tr><td>Recipe trials with co-packers</td><td class="t">₹25,000 – 40,000</td><td>Owner</td></tr>
+            <tr><td>First kiosk: deposit, fit-out, billing, CCTV (oven and freezer rented)</td><td class="t">₹3,50,000 – 5,00,000</td><td>Owner, Mudra loan</td></tr>
+            <tr><td>Launch marketing</td><td class="t">₹75,000</td><td>Owner</td></tr>
+            <tr><td>Partner jars and displays, first 10</td><td class="t">₹15,000</td><td>Owner</td></tr>
+            <tr><td>Cash for 3 months of running costs</td><td class="t">₹2,00,000 – 2,50,000</td><td>Owner</td></tr>
+            <tr><td><b>Phase 0–1 total</b></td><td class="t"><b>about ₹7 – 9 lakh</b></td><td></td></tr>
+            <tr><td>Kiosks 2 and 3</td><td class="t">₹8 – 10 lakh</td><td>Phase 1 profits</td></tr>
+            <tr><td>Franchise manual, lawyer, franchise marketing</td><td class="t">₹4 – 6 lakh</td><td>Phase 2 profits</td></tr>
+            <tr><td>Franchise outlets</td><td class="t">₹6 – 8 lakh each</td><td>Franchisees</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Avoid outside investors until Phase 3 at the earliest. The model funds itself, and keeping full ownership is what lets the owner stay out of daily work without answering to anyone.</p>
+    </section>
+
+    <section id="risks">
+      <h2>Risks</h2>
+      <div class="tablebox">
+        <table>
+          <thead><tr><th>Risk</th><th>Guard</th></tr></thead>
+          <tbody>
+            <tr><td>Co-packer quality slips</td><td>Specification, batch samples, weekly taste panel, unannounced audits, price penalties in the contract</td></tr>
+            <tr><td>Co-packer copies the recipe</td><td>Confidentiality contract; we supply the signature ingredients; trademark protects the name customers ask for</td></tr>
+            <tr><td>Co-packer stops supplying</td><td>2 days of dough at every kiosk; second co-packer qualified by month 12</td></tr>
+            <tr><td>Operations head leaves</td><td>Everything written in the playbook and apps; store leads trained to step up; a bonus that pays out over 2 years</td></tr>
+            <tr><td>Franchisees cut corners</td><td>Careful selection, compulsory billing app, monthly mystery shopper, right to end the agreement</td></tr>
+            <tr><td>Growing faster than cash</td><td>Phase gates; no new kiosk until the last one is profitable</td></tr>
+            <tr><td>Copycat cookie shops</td><td>Speed, the brand, partner network and loyalty list; monthly new flavours</td></tr>
+            <tr><td>Monsoon and off-season dips</td><td>Delivery and partner sales in the rains; gifting peaks in Oct–Nov</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="next90">
+      <h2>First 90 days</h2>
+      <div class="phases">
+        <div class="phase"><div class="when">Days 1–30</div><div><ul><li>Choose the brand name; trademark search and filing</li><li>Register the company; open the bank account with owner-only approval</li><li>Shortlist 3 bakeries as co-packers; run trial batches of the 4 core cookies</li><li>Count footfall at 3 kiosk sites on a weekday evening and a Sunday</li></ul></div></div>
+        <div class="phase"><div class="when">Days 31–60</div><div><ul><li>Sign the co-packer contract and the kiosk lease</li><li>Apply for FSSAI, GST, trade licence, Shops and Establishments</li><li>Rent the oven and freezer; order fit-out</li><li>Hire the store lead and salesperson; hire a part-time B2B sales executive</li><li>Set up billing app, payroll app, WhatsApp Business, Instagram and Google profile</li></ul></div></div>
+        <div class="phase"><div class="when">Days 61–90</div><div><ul><li>Train staff for 5 days at the co-packer and the kiosk</li><li>Run the 30-day launch plan; sign the first 5 partner cafés</li><li>Open; review the first 2 weeks of numbers with the store lead</li><li>Start the operations head search for months 6–9</li></ul></div></div>
+      </div>
+    </section>
+  </main>
+</div>
